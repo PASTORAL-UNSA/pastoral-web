@@ -1,0 +1,39 @@
+---
+import type PostCardInterface from "../interfaces/PostCard";
+
+interface Props {
+  post: PostCardInterface;
+}
+---
+
+<div class="postCard overflow-hidden rounded-md shadow-md">
+  <img
+    src={Astro.props.post.urlImage}
+    alt="alt"
+    class="h-48 w-full object-cover"
+  />
+  <div class="card p-5 bg-white">
+    <h1 class="text-2xl font-semibold text-gray-700">
+      {Astro.props.post.title}
+    </h1>
+    <div class="badges-container mt-2 space-x-2">
+      {
+        Astro.props.post.categories.map((category) => (
+          <span class="inline-flex items-center rounded-lg bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+            {category}
+          </span>
+        ))
+      }
+    </div>
+    <p class="my-4 text-gray-600">
+      {Astro.props.post.description}
+    </p>
+    <div class="mb-2 flex items-center justify-between">
+      <a
+        href={Astro.props.post.urlPost}
+        class="text-md font-light text-[#2574b0]">Leer más</a
+      >
+      <span class="text-gray-500 text-sm">{Astro.props.post.mins} min de lectura</span>
+    </div>
+  </div>
+</div>

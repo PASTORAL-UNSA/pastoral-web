@@ -1,0 +1,23 @@
+---
+import { activities } from "../data/Activities";
+import ActivityCalendar from "./ActivityCalendar.astro";
+import ActivityCard from "./ActivityCard.astro";
+---
+<div id="actividades" class="pt-20"></div>
+<section class="w-full pb-8 md:py-24 lg:py-16 bg-cyan-50/10 lg:max-w-7xl">
+  <div class="container px-4 md:px-6">
+    <h2 class="text-3xl font-semibold tracking-tighter sm:text-4xl md:text-5xl mb-8 text-cyan-900">
+      Actividades y Eventos
+    </h2>
+    <div class="grid gap-6 lg:grid-cols-2">
+      <ActivityCalendar />
+      <div class="space-y-4">
+        {
+          activities.map(({ title, label, icon }) => (
+            <ActivityCard title={title} label={label} icon={icon} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

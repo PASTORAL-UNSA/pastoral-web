@@ -1,0 +1,25 @@
+---
+import type TestimonialCardInterface from "../interfaces/Testimonial";
+
+interface Props {
+  testimonial: TestimonialCardInterface;
+}
+---
+
+<div
+  class="testimonial-card border border-gray-350 rounded-lg p-4 bg-white shadow-sm"
+>
+  <p class="text-gray-600 italic font-serif font-light text-md">
+    "{Astro.props.testimonial.description}"
+  </p>
+  <div class="flex space-x-3 justify-end items-end">
+    <h1 class="text-sm text-cyan-900/80 mt-3">
+      {Astro.props.testimonial.name}
+    </h1>
+    <img
+      src={Astro.props.testimonial.urlImage}
+      alt=""
+      class="size-5 rounded-full bg-slate-500 object-cover"
+    />
+  </div>
+</div>

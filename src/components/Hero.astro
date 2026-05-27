@@ -1,0 +1,39 @@
+---
+import { getImage } from "astro:assets";
+import myBackground from "../assets/vol5.jpeg";
+
+const optimizedBackground = await getImage({
+  src: myBackground,
+  format: "webp",
+});
+---
+
+<div id="inicio" class="pt-14 lg:pt-20"></div>
+<section
+  class="bg-img-pastoral relative h-52 shadow-m lg:w-full lg:h-96 lg:max-w-7xl"
+  style={`background-image: url(${optimizedBackground.src});`}
+>
+  <div class=" backdrop-blur-sm w-full h-full relative">
+    <h1 class="font-medium text-5xl text-white/85 mt-14 absolute bottom-4 left-4">
+      PASTORAL
+      <br/>
+      <span class="text-[#1ca5ba]">UNSA</span>
+    </h1>
+  </div>
+</section>
+
+<style>
+  .bg-img-pastoral {
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  @media (min-width: 1024px) {
+    .bg-img-pastoral {
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+  }
+}
+</style>

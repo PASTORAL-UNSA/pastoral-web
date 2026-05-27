@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string;
+  classs?: string;
+}
+
+const { title, classs } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta property="og:title" content="Pastoral Universidad de San Agustin" />
+    <meta
+      property="og:description"
+      content="Únete a la Pastoral Universitaria de la Universidad Nacional de San Agustín en Arequipa. Fomentamos la fe, la comunidad y el crecimiento espiritual a través de actividades y eventos significativos."
+    />
+    <meta
+      property="og:image"
+      content="https://lh3.googleusercontent.com/fife/ALs6j_E6A3nBpuGFfrM5mnVtPRvid3EVHrNq3fQq0hR1H9dfPKKY6guGd9LgL8EvmC7hEjx_iRCXzS__NXMjUPn8xu-ci7KNbF_ASixHMN6ymKlJULiPYhkWob4_GkYNu-_fH7M7e6LFh6hHej7i6BC1xAQi5MXm5cG77iw0fXhfvhkipEdi_IdnQn9VxeNaaQwJBfL6iR7vo6WON7Rb5YBoXOpPXip9MrBan2vqnFcnbCPOs2l7peeVJBN8ncMaN6vLT_Lih8qCN5cyBkxm7JxW633PRmad9aSZmGR2NLnb8aG7YDsoeeavcMStNBW8J1oDjh9Qo1iuZmILllxeJyueCTJ71b3QVrI8deh_Zu1TqPVvhCiDBZP-vCZlpSdu6I2EHlUgYzPnEGfmkF8_F6WtFaXqabFDR33zQD1whkOF-yMfVdyL-oIw7fU-cWkSARGqtc2zvSeuBfoyR90LEGIh-MW-J_IT-2kYYfnKFI_n_2U9Uq9E0TkPT5eWZLHnb-nkY8PHrbXrQdDZT3RwKk7-MfC4UPFPeq6DBROl8CqjUCU9boQxbnvjjHErAKDG2zV-Rl_3bwpC0N-nLSpKtI6S56eo8s1lzZwTsWsg-vcnRLeIlUNplPaBMOdn1-avpz97iXQM_VnFgdmn7SpOV-HNpeUADhoC1KBKRcCa_MvEtU_YwmIJttuEQGgWfGYoph13dhPkk2pob3JFqai16SbzmM_Mbn0jFn8KDeMs1CSV7hDZaEsVqEhnBNuQeWkpZPYXebC3yhUYM4B_iKwtAXxftUoNsg8hvR8pMa9J0IkC2JV5RNx4DD36tnJmnmlYW2uYTuHQsLqp3SPvnrUvzZ2mlYQ1f8b7EZyyl2uGqm7vd-fXV2a4nAYT-OjYoaMv32WIyAwsXR4IKef4G_LYmU2pMyFGRln2ePifpl3aBLOtg7_38pfjU5gQclkH7F7awPYXywQkNTTrlLcpYv_xZhnYJJEsSj1NE4-ld8t82-GtwGpa-SGVJC4EKrL_J-v_k4BVcRvDNR2yylq1DTpzSbPQ2rwACtY2Od6lHcPgChJCCAk7POHrtXxe7HZMVSATtN5PosAYInZrcALxp4sAgyZ9ajdHASlF2YoTQINpb2cHcwvQ2Ku7aZc6QLuTYg-1RUoLal_qmMZuhFF-q9Uv_4MQ3_ZawxBdQE8pyVqU5K7-1hlFAoRVK7l9dCCSLjqNZkSM0GE9D1k06-0Mfa510U5KJYuIrx9wW8Ke-KReWX-hQEafQsn9DPdzWS1prDUPt_hCcGAJlf_nbSWt3BvsSx40mKn4w3k42tfQxGU7z4fbZdxSINeCB7toRhkRpS4Y-O_GB-anHdrXYkvve7QbMLSCApKfqleRyMWo3vmG8tVzkeW9dHTnFqn-b7jloMEAwMep7iTQb0ZZYtClt4-qLseApYhT8Yy_Jt9y-ZRbZwLgcZZq-BUnxNB8qprL-eDAPW3vbYBl9keTBx-f-IutvIssjwfi3WAEJTdFN05tB-dA8h0ZxCL-HN1q6sWch1Zgm35AGjcbXcZakE4MicdPYo0MfyPaYSjRQ4DWBrYo9Z1g6KztwILHzUKDMF9pi1E6-XnilgJI6ylnubLe-oePAMWFyMaYTKzGrW2JZCJTiLgY9_GIua5k2D5voABFb5ocwniDF0MVGUgEycF9q0ZcVTIbIIvQ8sk=w1024-h1024"
+    />
+    <meta
+      property="og:url"
+      content="https://pastoraluniversitariaunsa.org"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pastoral Universidad de San Agustin" />
+    <meta
+      name="twitter:description"
+      content="Únete a la Pastoral Universitaria de la Universidad Nacional de San Agustín en Arequipa. Fomentamos la fe, la comunidad y el crecimiento espiritual a través de actividades y eventos significativos."
+    />
+    <meta
+      name="twitter:image"
+      content="https://lh3.googleusercontent.com/fife/ALs6j_E6A3nBpuGFfrM5mnVtPRvid3EVHrNq3fQq0hR1H9dfPKKY6guGd9LgL8EvmC7hEjx_iRCXzS__NXMjUPn8xu-ci7KNbF_ASixHMN6ymKlJULiPYhkWob4_GkYNu-_fH7M7e6LFh6hHej7i6BC1xAQi5MXm5cG77iw0fXhfvhkipEdi_IdnQn9VxeNaaQwJBfL6iR7vo6WON7Rb5YBoXOpPXip9MrBan2vqnFcnbCPOs2l7peeVJBN8ncMaN6vLT_Lih8qCN5cyBkxm7JxW633PRmad9aSZmGR2NLnb8aG7YDsoeeavcMStNBW8J1oDjh9Qo1iuZmILllxeJyueCTJ71b3QVrI8deh_Zu1TqPVvhCiDBZP-vCZlpSdu6I2EHlUgYzPnEGfmkF8_F6WtFaXqabFDR33zQD1whkOF-yMfVdyL-oIw7fU-cWkSARGqtc2zvSeuBfoyR90LEGIh-MW-J_IT-2kYYfnKFI_n_2U9Uq9E0TkPT5eWZLHnb-nkY8PHrbXrQdDZT3RwKk7-MfC4UPFPeq6DBROl8CqjUCU9boQxbnvjjHErAKDG2zV-Rl_3bwpC0N-nLSpKtI6S56eo8s1lzZwTsWsg-vcnRLeIlUNplPaBMOdn1-avpz97iXQM_VnFgdmn7SpOV-HNpeUADhoC1KBKRcCa_MvEtU_YwmIJttuEQGgWfGYoph13dhPkk2pob3JFqai16SbzmM_Mbn0jFn8KDeMs1CSV7hDZaEsVqEhnBNuQeWkpZPYXebC3yhUYM4B_iKwtAXxftUoNsg8hvR8pMa9J0IkC2JV5RNx4DD36tnJmnmlYW2uYTuHQsLqp3SPvnrUvzZ2mlYQ1f8b7EZyyl2uGqm7vd-fXV2a4nAYT-OjYoaMv32WIyAwsXR4IKef4G_LYmU2pMyFGRln2ePifpl3aBLOtg7_38pfjU5gQclkH7F7awPYXywQkNTTrlLcpYv_xZhnYJJEsSj1NE4-ld8t82-GtwGpa-SGVJC4EKrL_J-v_k4BVcRvDNR2yylq1DTpzSbPQ2rwACtY2Od6lHcPgChJCCAk7POHrtXxe7HZMVSATtN5PosAYInZrcALxp4sAgyZ9ajdHASlF2YoTQINpb2cHcwvQ2Ku7aZc6QLuTYg-1RUoLal_qmMZuhFF-q9Uv_4MQ3_ZawxBdQE8pyVqU5K7-1hlFAoRVK7l9dCCSLjqNZkSM0GE9D1k06-0Mfa510U5KJYuIrx9wW8Ke-KReWX-hQEafQsn9DPdzWS1prDUPt_hCcGAJlf_nbSWt3BvsSx40mKn4w3k42tfQxGU7z4fbZdxSINeCB7toRhkRpS4Y-O_GB-anHdrXYkvve7QbMLSCApKfqleRyMWo3vmG8tVzkeW9dHTnFqn-b7jloMEAwMep7iTQb0ZZYtClt4-qLseApYhT8Yy_Jt9y-ZRbZwLgcZZq-BUnxNB8qprL-eDAPW3vbYBl9keTBx-f-IutvIssjwfi3WAEJTdFN05tB-dA8h0ZxCL-HN1q6sWch1Zgm35AGjcbXcZakE4MicdPYo0MfyPaYSjRQ4DWBrYo9Z1g6KztwILHzUKDMF9pi1E6-XnilgJI6ylnubLe-oePAMWFyMaYTKzGrW2JZCJTiLgY9_GIua5k2D5voABFb5ocwniDF0MVGUgEycF9q0ZcVTIbIIvQ8sk=w1024-h1024"
+    />
+    <meta
+      property="twitter:url"
+      content="https://pastoraluniversitariaunsa.org"
+    />
+    <meta property="twitter:type" content="website" />
+
+    <meta name="title" content="Pastoral Universidad de San Agustin" />
+    <meta
+      name="description"
+      content="Únete a la Pastoral Universitaria de la Universidad Nacional de San Agustín en Arequipa. Fomentamos la fe, la comunidad y el crecimiento espiritual a través de actividades y eventos significativos."
+    />
+    <meta
+      property="image"
+      content="https://lh3.googleusercontent.com/fife/ALs6j_E6A3nBpuGFfrM5mnVtPRvid3EVHrNq3fQq0hR1H9dfPKKY6guGd9LgL8EvmC7hEjx_iRCXzS__NXMjUPn8xu-ci7KNbF_ASixHMN6ymKlJULiPYhkWob4_GkYNu-_fH7M7e6LFh6hHej7i6BC1xAQi5MXm5cG77iw0fXhfvhkipEdi_IdnQn9VxeNaaQwJBfL6iR7vo6WON7Rb5YBoXOpPXip9MrBan2vqnFcnbCPOs2l7peeVJBN8ncMaN6vLT_Lih8qCN5cyBkxm7JxW633PRmad9aSZmGR2NLnb8aG7YDsoeeavcMStNBW8J1oDjh9Qo1iuZmILllxeJyueCTJ71b3QVrI8deh_Zu1TqPVvhCiDBZP-vCZlpSdu6I2EHlUgYzPnEGfmkF8_F6WtFaXqabFDR33zQD1whkOF-yMfVdyL-oIw7fU-cWkSARGqtc2zvSeuBfoyR90LEGIh-MW-J_IT-2kYYfnKFI_n_2U9Uq9E0TkPT5eWZLHnb-nkY8PHrbXrQdDZT3RwKk7-MfC4UPFPeq6DBROl8CqjUCU9boQxbnvjjHErAKDG2zV-Rl_3bwpC0N-nLSpKtI6S56eo8s1lzZwTsWsg-vcnRLeIlUNplPaBMOdn1-avpz97iXQM_VnFgdmn7SpOV-HNpeUADhoC1KBKRcCa_MvEtU_YwmIJttuEQGgWfGYoph13dhPkk2pob3JFqai16SbzmM_Mbn0jFn8KDeMs1CSV7hDZaEsVqEhnBNuQeWkpZPYXebC3yhUYM4B_iKwtAXxftUoNsg8hvR8pMa9J0IkC2JV5RNx4DD36tnJmnmlYW2uYTuHQsLqp3SPvnrUvzZ2mlYQ1f8b7EZyyl2uGqm7vd-fXV2a4nAYT-OjYoaMv32WIyAwsXR4IKef4G_LYmU2pMyFGRln2ePifpl3aBLOtg7_38pfjU5gQclkH7F7awPYXywQkNTTrlLcpYv_xZhnYJJEsSj1NE4-ld8t82-GtwGpa-SGVJC4EKrL_J-v_k4BVcRvDNR2yylq1DTpzSbPQ2rwACtY2Od6lHcPgChJCCAk7POHrtXxe7HZMVSATtN5PosAYInZrcALxp4sAgyZ9ajdHASlF2YoTQINpb2cHcwvQ2Ku7aZc6QLuTYg-1RUoLal_qmMZuhFF-q9Uv_4MQ3_ZawxBdQE8pyVqU5K7-1hlFAoRVK7l9dCCSLjqNZkSM0GE9D1k06-0Mfa510U5KJYuIrx9wW8Ke-KReWX-hQEafQsn9DPdzWS1prDUPt_hCcGAJlf_nbSWt3BvsSx40mKn4w3k42tfQxGU7z4fbZdxSINeCB7toRhkRpS4Y-O_GB-anHdrXYkvve7QbMLSCApKfqleRyMWo3vmG8tVzkeW9dHTnFqn-b7jloMEAwMep7iTQb0ZZYtClt4-qLseApYhT8Yy_Jt9y-ZRbZwLgcZZq-BUnxNB8qprL-eDAPW3vbYBl9keTBx-f-IutvIssjwfi3WAEJTdFN05tB-dA8h0ZxCL-HN1q6sWch1Zgm35AGjcbXcZakE4MicdPYo0MfyPaYSjRQ4DWBrYo9Z1g6KztwILHzUKDMF9pi1E6-XnilgJI6ylnubLe-oePAMWFyMaYTKzGrW2JZCJTiLgY9_GIua5k2D5voABFb5ocwniDF0MVGUgEycF9q0ZcVTIbIIvQ8sk=w1024-h1024"
+    />
+    <meta property="url" content="https://pastoraluniversitariaunsa.org" />
+    <meta property="type" content="website" />
+
+    <!-- Para navegadores basados en Chrome en Android -->
+    <meta name="theme-color" content="#1CA1B9" />
+
+    <!-- Para Safari en iOS -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#1CA1B9" />
+
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="ico" href="/favicon.ico" />
+    <meta name="generator" content="Astro 5.1.6" />
+    <title>{title}</title>
+  </head>
+  <body class={Astro.props.classs}>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    /* color-scheme: light dark; */
+    color-scheme: light;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>

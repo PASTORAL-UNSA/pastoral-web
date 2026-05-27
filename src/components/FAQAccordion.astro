@@ -1,0 +1,64 @@
+---
+import RowColapseIcon from "../icons/RowColapse.astro";
+
+interface Props {
+  question: String;
+  answer: String;
+}
+---
+
+<div class="accordion-flush border-b border-gray-200">
+  <h2 class="text-lg font-bold tracking-tighter">
+    <button
+      type="button"
+      class="flex items-center justify-between w-full py-5 font-medium text-gray-500 gap-3"
+    >
+      <span>{Astro.props.question}</span>
+      <RowColapseIcon class="size-3 rotate-180 shrink-0" />
+    </button>
+  </h2>
+  <div class="h-0 overflow-hidden accordion-flush-body">
+    <div class="py-2 border-b border-gray-200">
+      <p class="mb-2 text-gray-500">{Astro.props.answer}</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  interface AccordionItem {
+    element: Element;
+    index: number;
+    opened: boolean;
+  }
+
+  const accordions = document.getElementsByClassName("accordion-flush") as HTMLCollection;
+  let accordionList: AccordionItem[] = [];
+
+  [...accordions].forEach((element, index) => {accordionList.push({ element, index, opened: false })});
+
+  accordionList.forEach((element) => {
+    element.element?.addEventListener("click", () => {
+
+      var tl = gsap.timeline();
+      const icon = element.element.getElementsByTagName("svg");
+      const body = element.element.getElementsByClassName("accordion-flush-body");
+
+      if (!element.opened) {
+        tl.to(icon, {
+          rotateX: 180,
+          duration: 0.3,
+        }).to(body, { height: "auto", duration: 0.3, overflow: "none" }, 0);
+        element.opened = true;
+      } else {
+        tl.to(icon, {
+          rotateX: 0,
+          duration: 0.3,
+        }).to(body, { height: "0px", duration: 0.3, overflow: "none" }, 0);
+        element.opened = false;
+      }
+      
+    });
+  });
+</script>

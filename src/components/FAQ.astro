@@ -1,0 +1,17 @@
+---
+import FAQAccordion from "./FAQAccordion.astro";
+import { FAQs } from "../data/FAQs";
+---
+<div id="faqs" class="pt-20"></div>
+<section class="w-full pb-8 md:py-24 lg:py-32 bg-gradient-to-t from-cyan-500/10 from-10% to-cyan-50/10 to-90% lg:max-w-7xl">
+  <div class="container px-4 md:px-6" id="container">
+    <h2 class="text-4xl font-semibold tracking-tighter sm:text-4xl md:text-5xl text-cyan-900 mb-8">
+      Preguntas Frecuentes
+    </h2>
+    {
+      FAQs.map(({ question, answer }) => (
+        <FAQAccordion question={question} answer={answer} />
+      ))
+    }
+  </div>
+</section>

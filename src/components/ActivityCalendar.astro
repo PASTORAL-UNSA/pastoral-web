@@ -1,0 +1,29 @@
+---
+import Calendar from "./Calendar";
+import calendarEvents from "../data/CalendarEvents";
+import type { CalendarEvent } from "../interfaces/CalendarEvent";
+
+const today = new Date().toISOString().split("T")[0];
+const uniqueEvents = Array.from(new Map(calendarEvents.filter(evento => evento.start >= today).map(evento => [evento.largeTitle, evento])).values());
+---
+
+<div
+  class="bg-slate-100/40 w-full h-auto p-4 rounded-lg border border-gray-200 shadow-md"
+>
+  <Calendar client:only="react" events={calendarEvents} />
+  <div class="mt-6 rounded-lg p-4">
+    <h3 class="font-semibold mb-3 text-cyan-800">Eventos Destacados:</h3>
+    <ul class="space-y-2">
+      {
+        uniqueEvents.map((evento: CalendarEvent) => (
+          <li class="flex items-center">
+            <span class={`size-2 rounded-full mr-2 md:h-3 ${evento.bgColor}`} />
+            <span class="text-sm text-gray-600">
+              <strong>{evento.largeTitle}:</strong><br/>{evento.description}
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

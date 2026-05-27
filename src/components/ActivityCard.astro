@@ -1,0 +1,45 @@
+---
+import BookIcon from "../icons/Book.astro";
+import HeartIcon from "../icons/Heart.astro";
+import BulbIcon from "../icons/Bulb.astro";
+import RightArrow from "../icons/RightArrow.astro";
+import DownArrow from "../icons/DownArrow.astro";
+
+interface Props {
+  title: String;
+  label: String;
+  icon: String;
+}
+---
+
+<div
+  class="card border border-gray-350 rounded-lg p-3 shadow-sm flex flex-row items-center justify-between bg-white"
+>
+  <div class="flex flex-row items-center justify-between space-x-4">
+    {
+      (() => {
+        switch (Astro.props.icon) {
+          case "book":
+            return <BookIcon class="size-10 text-cyan-900" />;
+          case "heart":
+            return <HeartIcon class="size-10 text-cyan-900" />;
+          case "bulb":
+            return <BulbIcon class="size-10 text-cyan-900" />;
+          default:
+            return <BookIcon class="size-10 text-cyan-900" />;
+        }
+      })()
+    }
+    <div>
+      <h1 class="text-2xl text-cyan-900/90">{Astro.props.title}</h1>
+      <p class="text-sm text-gray-500">{Astro.props.label}</p>
+    </div>
+  </div>
+  {
+    Astro.props.title == "Talleres" ? (
+      <DownArrow class="size-8 text-cyan-800" />
+    ) : (
+      <RightArrow class="size-8 text-cyan-800" />
+    )
+  }
+</div>

@@ -1,0 +1,126 @@
+---
+import MenuIcon from "../icons/Menu.astro";
+import logoPastoral from "../assets/logo_pastoral.png";
+import { Image } from "astro:assets";
+---
+
+<!-- // TODO: REFACTOR CICLOMATIC COMPLEXITY!!! --><!-- // FIXME: REFACTOR CICLOMATIC COMPLEXITY!!! -->
+<header
+  id="header"
+  class="fixed top-0 right-0 left-0 h-14 md:w-[540px] lg:w-full lg:max-w-7xl lg:h-20 py-2 px-4 mx-0 md:mx-auto lg:px-0 lg:py-0 shadow md:shadow-none bg-white/90 backdrop-blur-sm z-20"
+>
+  <div class="w-full flex justify-between items-center z-30 md:pt-3">
+    <a href="/">
+      <Image
+        src={logoPastoral}
+        alt="A description of my image."
+        class="h-auto w-32 md:w-40 object-cover lg:ml-4"
+      />
+    </a>
+
+    <button
+      id="btnMenu"
+      type="button"
+      class="inline-flex items-center p-1 size-6 justify-center text-sm text-gray-900/80 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+    >
+      <span class="sr-only">Abrir menu principal</span>
+      <MenuIcon />
+    </button>
+    <nav
+      class="flex-row gap-x-4 lg:gap-x-10 text-sm md:text-base text-gray-900 dark:text-gray-900 hidden md:flex pr-4"
+    >
+      <a href="/#inicio">Inicio</a>
+      <a href="/#nosotros">Sobre Nosotros</a>
+      <a href="/#actividades">Actividades</a>
+      <a href="/#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div
+  id="mobileMenuContainer"
+  class="hidden h-full w-full fixed items-center content-center top-0 left-0 bg-slate-400/80 backdrop-blur-sm z-50"
+>
+  <div
+    id="mobileMenu"
+    class="w-3/4 md:block rounded mx-auto bg-slate-50 py-2"
+    id="navbar-solid-bg"
+  >
+    <ul class="flex flex-col font-medium rounded bg-slate-10">
+      <!-- TODO: Agregar estado activo -->
+      <!-- <li>
+        <a href="/#inicio" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Inicio</a>
+      </li> -->
+      <li>
+        <a href="/#inicio" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
+          >🏡 Inicio</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#nosotros"
+          class="block py-2 px-4 md:p-0 text-gray-900 rounded"
+          >📖 Sobre Nosotros</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#actividades"
+          class="block py-2 px-4 md:p-0 text-gray-900 rounded">🦾 Actividades</a
+        >
+      </li>
+      <li>
+        <a href="/#posts" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
+          >📚 Noticias</a
+        >
+      </li>
+      <li>
+        <a href="/#galeria" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
+          >🎉 Vivencias</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#testimonios"
+          class="block py-2 px-4 md:p-0 text-gray-900 rounded">🎙️ Testimonios</a
+        >
+      </li>
+      <!-- <li>
+        <a href="/#equipo" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
+          >👥 Equipo</a
+        >
+      </li> -->
+      <li>
+        <a href="/#faqs" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
+          >❔ Preguntas</a
+        >
+      </li>
+      <li>
+        <a
+          href="/#contacto"
+          class="block py-2 px-4 md:p-0 text-gray-900 rounded">🤳🏻 Contacto</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap";
+
+  const mobileMenuContainer = document.getElementById("mobileMenuContainer");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const btnMenu = document.getElementById("btnMenu");
+
+  mobileMenuContainer?.addEventListener("click", () => {
+    var tl = gsap.timeline();
+    tl.to(mobileMenuContainer, { opacity: 0, display: "none", duration: 0.3 });
+    tl.to(mobileMenu, { y: 50, duration: 0.3 }, 0);
+  });
+
+  btnMenu?.addEventListener("click", () => {
+    var tl = gsap.timeline();
+    tl.to(mobileMenuContainer, { opacity: 1, display: "block", duration: 0.3 });
+    tl.to(mobileMenu, { y: 0, duration: 0.3 }, 0);
+  });
+</script>
