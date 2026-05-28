@@ -44,3 +44,18 @@ Convenciones operativas para `pastoral-web` (Producto 1, landing Astro).
 - Politica de estilos: minimizar CSS personalizado.
 - Contenido: Decap CMS + Astro Content Collections.
 - Hosting activo: Vercel.
+
+## Fase 2 - Plan tecnico inmediato
+
+- Regla de planificacion: sin estimaciones en dias; se trabaja por hitos y entregables.
+
+### Entregables tecnicos de fase
+- Backlog tecnico priorizado de implementacion home.
+- Mapa de componentes/archivos impactados.
+- Definicion de contratos de datos para Actividades, Calendario vivo, Noticias y FAQ.
+- Checklist tecnico de validacion antes de merge.
+
+### Dependencias tecnicas
+- URL oficial de WhatsApp con parametros de tracking.
+- Disponibilidad de contenido real para calendario, comunidad y noticias.
+- Confirmacion de copy final por seccion para evitar retrabajo en componentes.

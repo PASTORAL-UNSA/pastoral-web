@@ -1,39 +1,173 @@
 ---
-import { getImage } from "astro:assets";
-import myBackground from "../assets/vol5.jpeg";
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? "51999999999";
+const whatsappMessage =
+  import.meta.env.PUBLIC_WHATSAPP_MESSAGE ??
+  "Hola, quiero unirme a Pastoral Universitaria UNSA.";
+const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? "https://pastoral-unsa.local";
 
-const optimizedBackground = await getImage({
-  src: myBackground,
-  format: "webp",
-});
+const whatsappBaseUrl = "https://api.whatsapp.com/send";
+const ctaPrimaryHref = `${whatsappBaseUrl}?phone=${encodeURIComponent(whatsappNumber)}&text=${encodeURIComponent(`${whatsappMessage} (${siteUrl})`)}`;
 ---
 
-<div id="inicio" class="pt-14 lg:pt-20"></div>
-<section
-  class="bg-img-pastoral relative h-52 shadow-m lg:w-full lg:h-96 lg:max-w-7xl"
-  style={`background-image: url(${optimizedBackground.src});`}
->
-  <div class=" backdrop-blur-sm w-full h-full relative">
-    <h1 class="font-medium text-5xl text-white/85 mt-14 absolute bottom-4 left-4">
-      PASTORAL
-      <br/>
-      <span class="text-[#1ca5ba]">UNSA</span>
-    </h1>
+<div id="inicio" class="pt-[53px]"></div>
+<section class="hero-shell relative w-full lg:max-w-7xl">
+  <div class="hero-visual absolute inset-0 -z-10"></div>
+  <div class="hero-soft-glow" aria-hidden="true"></div>
+
+  <div class="hero-grid mx-auto grid min-h-[31rem] items-center gap-8 pt-16 sm:px-6 sm:pt-5 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:pb-24 lg:pt-8">
+    <div class="hero-content mx-auto flex max-w-2xl flex-col items-center space-y-5 text-center text-white">
+      <p class="hero-eyebrow inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em]">
+        COMUNIDAD UNIVERSITARIA
+      </p>
+      <h1 class="hero-headline text-[2.15rem] font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+        <span class="hero-headline-line-1">Vive la fe.</span><br />
+        <span class="hero-headline-line-2">Haz amigos en la UNSA.</span>
+      </h1>
+      <p class="hero-supporting max-w-xl text-base font-medium text-white/85 md:text-lg">
+        Conecta, crece y encuentra tu lugar.
+      </p>
+
+      <div class="hero-actions flex flex-wrap items-center justify-center gap-3 pt-3 text-gray-700">
+        <a
+          href={ctaPrimaryHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hero-cta-primary inline-flex min-h-14 items-center justify-center rounded-3xl px-12 py-2 text-base font-bold transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="mr-2.5 size-5"
+            aria-hidden="true"
+          >
+            <path d="M7.5 16.5 3 21l1.8-6A8.5 8.5 0 1 1 7.5 16.5Z"></path>
+          </svg>
+          <span>Unirme por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-media-area hidden lg:block" aria-hidden="true"></div>
+
+    <div class="hero-metrics -mb-0" aria-label="Impacto de la comunidad">
+      <article class="metric-item">
+        <p class=" text-cyan-600 font-bold letter-spacing-[0.2em]">+500</p>
+        <p class="text-gray-600 letter-spacing-[0.09em]">JÓVENES</p>
+      </article>
+      <article class="metric-item">
+        <p class=" text-cyan-600 font-bold letter-spacing-[0.2em]">10</p>
+        <p class="text-gray-600 letter-spacing-[0.09em]">GRUPOS</p>
+      </article>
+      <article class="metric-item">
+        <p class=" text-cyan-600 font-bold letter-spacing-[0.2em]">1</p>
+        <p class="text-gray-600 letter-spacing-[0.09em]">FAMILIA</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <style>
-  .bg-img-pastoral {
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  .hero-visual {
+    background-color: #0d98b0;
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.2) 1.8px, transparent 1.8px),
+      linear-gradient(150deg, #0f96af 0%, #0aa0bc 52%, #0b8ba4 100%);
+    background-size: 22px 22px, cover;
+    background-position: 0 0, center;
+    border-radius: 0;
   }
+
+  .hero-shell {
+    overflow-x: hidden;
+  }
+
+  .hero-soft-glow {
+    position: absolute;
+    right: -8.2rem;
+    bottom: -8.5rem;
+    z-index: -5;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(250, 212, 71, 0.32) 0%, rgba(250, 212, 71, 0) 72%);
+    filter: blur(3px);
+  }
+
+  .hero-eyebrow {
+    color: #e9fcff;
+    border: 1px solid rgba(227, 248, 255, 0.5);
+    background: rgba(226, 246, 255, 0.2);
+    backdrop-filter: blur(5px);
+  }
+
+  .hero-headline-line-1 {
+    color: #ffffff;
+  }
+
+  .hero-headline-line-2 {
+    color: #ffd24a;
+    text-shadow: 0 2px 14px rgba(9, 46, 71, 0.24);
+  }
+
+  .hero-cta-primary {
+    background: #ffd24a;
+    border: 1px solid rgba(20, 36, 58, 0.12);
+    box-shadow: 0 12px 30px rgba(11, 39, 62, 0.24);
+  }
+
+  .hero-cta-primary:hover {
+    background: #ffd145;
+    transform: translateY(-1px);
+  }
+
+  .hero-metrics {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(92%, 29rem);
+    margin: 1.2rem auto -3.2rem;
+    transform: none;
+    border-radius: 1.25rem;
+    background: #ffffff;
+    box-shadow: 0 16px 36px rgba(10, 34, 55, 0.22);
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .metric-item {
+    padding: 1.08rem 0.65rem 0.95rem;
+    text-align: center;
+  }
+
+
   @media (min-width: 1024px) {
-    .bg-img-pastoral {
-    background-size: auto 130%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: bottom;
+    .hero-shell {
+      border-radius: 1rem;
+    }
+
+    .hero-content {
+      margin-left: 0;
+    }
+
+    .hero-soft-glow {
+      left: -2.8rem;
+      bottom: -4.8rem;
+      width: 20rem;
+      height: 20rem;
+    }
+
+    .hero-metrics {
+      position: absolute;
+      left: 2.5rem;
+      bottom: 0;
+      width: min(29rem, calc(100% - 5rem));
+      margin-top: 0;
+      transform: translateY(42%);
+    }
   }
-}
 </style>

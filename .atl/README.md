@@ -9,18 +9,21 @@ Esta carpeta contiene el contexto operativo/documental del repo `pastoral-web`, 
 3. Definir `03-skills-registry.md` segun los agentes y skills realmente disponibles.
 4. Ajustar `04-technical-baseline.md` con convenciones del equipo.
 5. Confirmar `05-workflow-and-roles.md` con responsables y flujo operativo.
-6. Actualizar `02-daily-tracking.md` todos los dias de trabajo.
+6. Definir direccion visual en `06-design-direction.md` antes de ejecutar un rediseno.
+7. Actualizar `02-daily-tracking.md` todos los dias de trabajo.
 
 ## Frecuencia de actualizacion
 
-| Archivo | Frecuencia | Responsable sugerido |
-|---|---|---|
-| `00-project-context.md` | Inicio y cambios de alcance | Owner de producto/proyecto |
-| `01-prd-context.md` | Por feature/milestone | Owner + implementador |
-| `02-daily-tracking.md` | Diario | Implementador/lead tecnico |
-| `03-skills-registry.md` | Al agregar/quitar skills | Owner tecnico |
-| `04-technical-baseline.md` | Por decision tecnica | Lead tecnico |
-| `05-workflow-and-roles.md` | Al cambiar proceso/roles | Owner del equipo |
+
+| Archivo                    | Frecuencia                  | Responsable sugerido       |
+| -------------------------- | --------------------------- | -------------------------- |
+| `00-project-context.md`    | Inicio y cambios de alcance | Owner de producto/proyecto |
+| `01-prd-context.md`        | Por feature/milestone       | Owner + implementador      |
+| `02-daily-tracking.md`     | Diario                      | Implementador/lead tecnico |
+| `03-skills-registry.md`    | Al agregar/quitar skills    | Owner tecnico              |
+| `04-technical-baseline.md` | Por decision tecnica        | Lead tecnico               |
+| `05-workflow-and-roles.md` | Al cambiar proceso/roles    | Owner del equipo           |
+| `06-design-direction.md`   | Por rediseno o ajuste visual| UX/UI + implementador      |
 
 ## Uso en este repositorio
 
@@ -29,6 +32,7 @@ Esta carpeta contiene el contexto operativo/documental del repo `pastoral-web`, 
 - Registra avances reales en `02-daily-tracking.md` por fecha.
 - Revisa `03-skills-registry.md` cuando cambie el set de skills del agente.
 - Ajusta `04-technical-baseline.md` y `05-workflow-and-roles.md` ante cambios tecnicos u operativos.
+- Usa `06-design-direction.md` como base de tokens visuales, componentes y motion antes de tocar UI.
 
 ## Principios de esta base
 
