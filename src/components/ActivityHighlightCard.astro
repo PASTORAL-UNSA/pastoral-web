@@ -1,12 +1,12 @@
 ---
 import BookIcon from "../icons/Book.astro";
 import HeartIcon from "../icons/Heart.astro";
-import BulbIcon from "../icons/Bulb.astro";
+import MusicIcon from "../icons/Music.astro";
 
 interface Props {
   title: string;
   description: string;
-  icon: "book" | "heart" | "bulb";
+  icon: "book" | "heart" | "music";
   bgClass: string;
   textClass: string;
   buttonClass: string;
@@ -42,7 +42,7 @@ const {
             case "heart":
               return <HeartIcon class="size-20" />;
             default:
-              return <BulbIcon class="size-20" />;
+              return <MusicIcon class="size-20" />;
           }
         })()
       }

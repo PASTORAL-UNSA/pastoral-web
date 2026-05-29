@@ -1,13 +1,63 @@
-<div id="nosotros" class="pt-20"></div>
-<section class="w-full pb-8 md:py-24 lg:py-8 bg-cyan-50/10 lg:max-w-7xl">
-  <div class="container px-4 md:px-6 ">
-    <h2 class="text-3xl font-semibold tracking-tighter sm:text-4xl md:text-5xl text-cyan-900">
-      Sobre Nosotros
+---
+import Spa from "../icons/Spa.astro";
+import PeopleRoof from "../icons/PeopleRoof.astro";
+import ArrowTrendUp from "../icons/ArrowTrendUp.astro";
+
+const reasons = [
+  {
+    title: "Refugio del Estrés",
+    description: "Desconecta de la rutina académica.",
+    icon: Spa,
+    iconBackground: "bg-green-100",
+    iconColor: "text-green-600",
+  },
+  {
+    title: "Amigos Reales",
+    description: "Conexiones que duran toda la vida.",
+    icon: PeopleRoof,
+    iconBackground: "bg-violet-100",
+    iconColor: "text-violet-600",
+  },
+  {
+    title: "Crecimiento",
+    description: "Desarrollo personal y espiritual.",
+    icon: ArrowTrendUp,
+    iconBackground: "bg-sky-100",
+    iconColor: "text-sky-600",
+  },
+];
+---
+
+<div id="nosotros" class="pt-16 md:pt-20"></div>
+<section class="w-full bg-white px-4 pb-14 sm:px-6 sm:pb-16 md:pb-20">
+  <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+    <h2 class="text-2xl font-semibold tracking-tight text-cyan-700 sm:text-4xl md:text-5xl">
+      ¿Por qué unirte?
     </h2>
-    <p class="mt-4 max-w-[700px] text-muted-foreground md:text-xl text-gray-800">
-      Nuestra misión es acompañar a los jóvenes universitarios en su camino de
-      fe, proporcionando un espacio de crecimiento espiritual, formación
-      integral y servicio a la comunidad.
-    </p>
+
+    <div class="mt-10 flex w-full flex-col items-center gap-8 sm:mt-12 sm:gap-10 md:mt-14 md:gap-12">
+      {
+        reasons.map((reason) => {
+          const Icon = reason.icon;
+
+          return (
+            <article class="flex w-full max-w-md flex-col items-center p-2 my-2 text-center">
+              <div
+                class={`flex h-16 w-16 items-center justify-center rounded-full ${reason.iconBackground}`}
+              >
+                <Icon class={`h-8 w-8 ${reason.iconColor}`} aria-hidden="true" />
+              </div>
+
+              <h3 class="mt-3 text-xl font-normal leading-tight text-slate-700 sm:text-2xl">
+                {reason.title}
+              </h3>
+              <p class="mt-2 text-base leading-relaxed text-slate-500 sm:text-lg">
+                {reason.description}
+              </p>
+            </article>
+          );
+        })
+      }
+    </div>
   </div>
 </section>
