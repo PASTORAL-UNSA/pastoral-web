@@ -1,3 +1,56 @@
 ---
+import ActivityHighlightCard from "./ActivityHighlightCard.astro";
+
+const activityCards = [
+  {
+    title: "Voluntariado",
+    description: "Lleva tu fe a la acción. Sirve con amor.",
+    icon: "heart",
+    bgClass: "bg-[#19b8c8]",
+    textClass: "text-[#f9feff]",
+    buttonClass: "bg-[#e8fbff] text-[#0d6c78]",
+    badgeClass: "bg-white/20 text-white",
+    blobClassA: "bg-[#7de7f0]",
+    blobClassB: "bg-[#0f95a8]",
+  },
+  {
+    title: "Catequesis",
+    description: "Estudia la fe. Aprende con pasión.",
+    icon: "book",
+    bgClass: "bg-[#0f2f56]",
+    textClass: "text-[#f8fbff]",
+    buttonClass: "bg-[#f2f7ff] text-[#123a68]",
+    badgeClass: "bg-white/15 text-[#e4efff]",
+    blobClassA: "bg-[#2f5d93]",
+    blobClassB: "bg-[#0c2440]",
+  },
+  {
+    title: "Coro",
+    description: "Alaba cantando. Expresa tu fe.",
+    icon: "bulb",
+    bgClass: "bg-[#ffe8b6]",
+    textClass: "text-[#624220]",
+    buttonClass: "bg-[#fff9ea] text-[#8f622d]",
+    badgeClass: "bg-[#fff3d3] text-[#8f622d]",
+    blobClassA: "bg-[#ffd57f]",
+    blobClassB: "bg-[#ffcf70]",
+  },
+];
 ---
-<div id="actividades" class="pt-20"></div>
+
+<div id="actividades" class="pt-8"></div>
+<section class="w-full px-4 pb-12 sm:px-6 lg:max-w-7xl lg:px-10">
+  <div class="mx-auto w-full max-w-3xl">
+    <h3 class="mb-8 text-3xl font-bold tracking-tight text-cyan-800 text-center">
+      Descubre nuestras <span class="text-cyan-600">actividades</span>
+    </h3>
+
+    <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      {
+        activityCards.map((activity) => (
+          <ActivityHighlightCard {...activity} />
+        ))
+      }
+    </div>
+  </div>
+</section>
