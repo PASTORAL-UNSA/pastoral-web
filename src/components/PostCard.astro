@@ -3,37 +3,70 @@ import type PostCardInterface from "../interfaces/PostCard";
 
 interface Props {
   post: PostCardInterface;
+  index: number;
 }
+
+const { post, index } = Astro.props;
+
+const monthNames = [
+  "ENE",
+  "FEB",
+  "MAR",
+  "ABR",
+  "MAY",
+  "JUN",
+  "JUL",
+  "AGO",
+  "SEP",
+  "OCT",
+  "NOV",
+  "DIC",
+];
+
+const fallbackDates = [
+  new Date("2026-05-21"),
+  new Date("2026-05-16"),
+  new Date("2026-05-10"),
+  new Date("2026-05-05"),
+];
+
+const publishedAt = (post as { publishedAt?: string }).publishedAt;
+const publishedDate = publishedAt
+  ? new Date(publishedAt)
+  : fallbackDates[index % fallbackDates.length];
+
+const dayLabel = String(publishedDate.getDate()).padStart(2, "0");
+const monthLabel = monthNames[publishedDate.getMonth()] ?? "---";
+const firstCategory = post.categories[0] ? String(post.categories[0]).toUpperCase() : "NOTICIA";
 ---
 
-<div class="postCard overflow-hidden rounded-md shadow-md">
-  <img
-    src={Astro.props.post.urlImage}
-    alt="alt"
-    class="h-48 w-full object-cover"
-  />
-  <div class="card p-5 bg-white">
-    <h1 class="text-2xl font-semibold text-gray-700">
-      {Astro.props.post.title}
-    </h1>
-    <div class="badges-container mt-2 space-x-2">
+<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+  <a href={post.urlPost} class="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500">
+    <div class="relative h-52 bg-sky-100">
       {
-        Astro.props.post.categories.map((category) => (
-          <span class="inline-flex items-center rounded-lg bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-            {category}
-          </span>
-        ))
+        post.urlImage && (
+          <img
+            src={post.urlImage}
+            alt={`Imagen de ${String(post.title)}`}
+            class="h-full w-full object-cover"
+            loading="lazy"
+          />
+        )
       }
+      <div class="absolute left-2 top-2 flex px-4 py-2 flex-col items-center justify-center rounded-3xl bg-white shadow-md">
+        <span class="text-sm font-bold leading-none text-cyan-700">{dayLabel}</span>
+        <span class="text-[10px] font-medium tracking-wider text-gray-500">{monthLabel}</span>
+      </div>
     </div>
-    <p class="my-4 text-gray-600">
-      {Astro.props.post.description}
-    </p>
-    <div class="mb-2 flex items-center justify-between">
-      <a
-        href={Astro.props.post.urlPost}
-        class="text-md font-light text-[#2574b0]">Leer más</a
-      >
-      <span class="text-gray-500 text-sm">{Astro.props.post.mins} min de lectura</span>
+
+    <div class="bg-white px-5 py-6 sm:px-6">
+      <p class="text-xs font-bold tracking-wide text-yellow-400/95">{firstCategory}</p>
+      <h3 class="mt-3 text-xl font-semibold leading-snug text-slate-700 sm:text-2xl">
+        {post.title}
+      </h3>
+      <p class="line-clamp-2 mt-2 text-sm leading-relaxed text-slate-500 sm:text-base">
+        {post.description}
+      </p>
     </div>
-  </div>
-</div>
+  </a>
+</article>

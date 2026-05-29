@@ -32,6 +32,29 @@ Bitacora operacional para trabajo diario. Mantener una entrada por fecha.
 
 ---
 
+## Fecha: 2026-05-29
+
+### Tareas cerradas
+- [x] Se actualizo el tracking diario para reflejar el estado real del proyecto en etapa de rediseno.
+
+### En curso
+- [ ] Continuar el rediseno de `src/components/Posts.astro` (implementacion en curso; pendiente recibir nuevo diseno validado para llevarlo a codigo).
+
+### Bloqueadas
+- [ ] Sin bloqueos tecnicos; la siguiente iteracion depende de la entrega del nuevo diseno.
+
+### Proximas
+- [ ] Implementar en `src/components/Posts.astro` el nuevo diseno apenas quede aprobado.
+
+### Decisiones del dia
+- Decision: reconocer oficialmente que el proyecto ya avanza en etapa de rediseno (mas alla del arranque de Fase 2).
+- Motivo: el trabajo actual ya esta concentrado en evolucion visual y estructural de componentes reales.
+- Impacto: el seguimiento pasa a foco de ejecucion de rediseno por componente y no solo de planificacion.
+
+### Notas cortas
+- Riesgos observados: sin definicion visual final para Posts puede haber retrabajo en layout y estilos.
+- Dependencias nuevas: recepcion del nuevo diseno de Posts para implementar sin ambiguedad.
+
 ## Fecha: 2026-05-28
 
 ### Tareas cerradas

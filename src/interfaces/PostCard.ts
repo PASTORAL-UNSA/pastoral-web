@@ -5,4 +5,5 @@ export default interface PostCard {
   mins: Number;
   urlPost: string;
   urlImage: string;
+  publishedAt?: string;
 }
