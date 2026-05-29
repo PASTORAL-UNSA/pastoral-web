@@ -1,0 +1,40 @@
+---
+import WhatsAppIcon from "../icons/WhatsApp.astro";
+
+interface Props {
+  label?: string;
+  class?: string;
+  messageOverride?: string;
+  ariaLabel?: string;
+  showIcon?: boolean;
+}
+
+const {
+  label = "Unirme por WhatsApp",
+  class: className = "",
+  messageOverride,
+  ariaLabel,
+  showIcon = true,
+} = Astro.props as Props;
+
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? "51999999999";
+const defaultMessage =
+  import.meta.env.PUBLIC_WHATSAPP_MESSAGE ??
+  "Hola, quiero unirme a Pastoral Universitaria UNSA.";
+const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? "https://pastoral-unsa.local";
+
+const whatsappBaseUrl = "https://api.whatsapp.com/send";
+const finalMessage = messageOverride ?? defaultMessage;
+const href = `${whatsappBaseUrl}?phone=${encodeURIComponent(whatsappNumber)}&text=${encodeURIComponent(`${finalMessage} (${siteUrl})`)}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={ariaLabel ?? label}
+  class={`${className} will-change-transform transform-gpu outline-none transition-[transform,box-shadow,filter,background-color] duration-200 ease-out active:scale-[0.98] active:translate-y-px focus-visible:ring-2 focus-visible:ring-[#0d98b0] focus-visible:ring-offset-2 focus-visible:ring-offset-white`}
+>
+  {showIcon && <WhatsAppIcon class="mr-2.5 size-5" aria-hidden="true" focusable="false" />}
+  <span>{label}</span>
+</a>

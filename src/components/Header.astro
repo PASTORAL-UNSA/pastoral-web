@@ -4,10 +4,9 @@ import logoPastoral from "../assets/logo_pastoral.png";
 import { Image } from "astro:assets";
 ---
 
-<!-- // TODO: REFACTOR CICLOMATIC COMPLEXITY!!! --><!-- // FIXME: REFACTOR CICLOMATIC COMPLEXITY!!! -->
 <header
   id="header"
-  class="fixed top-0 right-0 left-0 z-20 border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur-sm"
+  class="fixed inset-x-0 top-0 z-40 w-full border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur-sm"
 >
   <div class="mx-auto flex w-full max-w-7xl items-center justify-between">
     <div class="size-9" aria-hidden="true"></div>
@@ -23,7 +22,7 @@ import { Image } from "astro:assets";
     <button
       id="btnMenu"
       type="button"
-      class="inline-flex size-9 items-center justify-center rounded-full text-slate-800 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300"
+      class="inline-flex size-9 items-center justify-center rounded-full text-cyan-700 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300"
     >
       <span class="sr-only">Abrir menu principal</span>
       <MenuIcon />
@@ -33,12 +32,11 @@ import { Image } from "astro:assets";
 
 <div
   id="mobileMenuContainer"
-  class="hidden h-full w-full fixed items-center content-center top-0 left-0 bg-slate-400/80 backdrop-blur-sm z-50"
+  class="fixed inset-0 z-50 hidden items-start justify-center overflow-y-auto bg-slate-900/45 p-4 pt-20 backdrop-blur-sm"
 >
   <div
     id="mobileMenu"
-    class="w-3/4 md:block rounded mx-auto bg-slate-50 py-2"
-    id="navbar-solid-bg"
+    class="w-full max-w-sm rounded-2xl bg-slate-50 py-2 shadow-xl"
   >
     <ul class="flex flex-col font-medium rounded bg-slate-10">
       <!-- TODO: Agregar estado activo -->
@@ -114,7 +112,7 @@ import { Image } from "astro:assets";
 
   btnMenu?.addEventListener("click", () => {
     var tl = gsap.timeline();
-    tl.to(mobileMenuContainer, { opacity: 1, display: "block", duration: 0.3 });
+    tl.to(mobileMenuContainer, { opacity: 1, display: "flex", duration: 0.3 });
     tl.to(mobileMenu, { y: 0, duration: 0.3 }, 0);
   });
 </script>
