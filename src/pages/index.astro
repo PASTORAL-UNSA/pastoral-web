@@ -1,31 +1,43 @@
 ---
 import MainLayout from "../layouts/Main.astro";
 
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import AboutUs from "../components/AboutUs.astro";
-import Activities from "../components/Activities.astro";
-import ActivityCalendar from "../components/ActivityCalendar.astro";
-import Posts from "../components/Posts.astro";
-import Testimonials from "../components/Testimonials.astro";
-import Footer from "../components/Footer.astro";
-import Galery from "../components/Galery.astro";
-import FAQ from "../components/FAQ.astro";
-import ContactUs from "../components/ContactUs.astro";
+import Header from "../components/sections/Header.astro";
+import Hero from "../components/sections/Hero.astro";
+import AboutUs from "../components/sections/AboutUs.astro";
+import Activities from "../components/sections/Activities.astro";
+import ActivityCalendar from "../components/sections/ActivityCalendar.astro";
+import Posts from "../components/sections/Posts.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import Footer from "../components/sections/Footer.astro";
+import Galery from "../components/sections/Galery.astro";
+import FAQ from "../components/sections/FAQ.astro";
+import ContactUs from "../components/sections/ContactUs.astro";
+import DesktopCommunity from "../components/sections/DesktopCommunity.astro";
+import DesktopNewsFaq from "../components/sections/DesktopNewsFaq.astro";
+import DesktopCtaFooter from "../components/sections/DesktopCtaFooter.astro";
 ---
 
 <MainLayout title="PASTORAL UNSA">
   <Header />
-  <div class="lg:flex flex-col items-center">
+  <div class="flex flex-col items-center overflow-x-clip">
     <Hero />
     <ActivityCalendar />
     <Activities />
     <AboutUs />
     <Galery />
-    <Posts />
-    <Testimonials />
-    <FAQ />
-    <ContactUs />
-    <Footer />
+
+    <div class="lg:hidden w-full">
+      <Posts />
+      <Testimonials />
+      <FAQ />
+      <ContactUs />
+      <Footer />
+    </div>
+
+    <div class="hidden w-full lg:block lg:pt-8">
+      <DesktopCommunity />
+      <DesktopNewsFaq />
+      <DesktopCtaFooter />
+    </div>
   </div>
 </MainLayout>

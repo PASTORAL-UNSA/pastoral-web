@@ -1,7 +1,7 @@
 ---
-import Spa from "../icons/Spa.astro";
-import PeopleRoof from "../icons/PeopleRoof.astro";
-import ArrowTrendUp from "../icons/ArrowTrendUp.astro";
+import Spa from "../../icons/Spa.astro";
+import PeopleRoof from "../../icons/PeopleRoof.astro";
+import ArrowTrendUp from "../../icons/ArrowTrendUp.astro";
 
 const reasons = [
   {
@@ -29,26 +29,26 @@ const reasons = [
 ---
 
 <div id="nosotros" class="pt-16 md:pt-20"></div>
-<section class="w-full bg-white px-4 pb-14 sm:px-6 sm:pb-16 md:pb-20">
-  <div class="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+<section class="w-full bg-white px-4 pb-14 sm:px-6 sm:pb-16 md:pb-20 lg:pb-24">
+  <div class="mx-auto flex w-full max-w-7xl flex-col items-center text-center lg:px-10">
     <h2 class="text-2xl font-semibold tracking-tight text-cyan-700 sm:text-4xl md:text-5xl">
       ¿Por qué unirte?
     </h2>
 
-    <div class="mt-10 flex w-full flex-col items-center gap-8 sm:mt-12 sm:gap-10 md:mt-14 md:gap-12">
+    <div class="mt-10 grid w-full max-w-6xl grid-cols-1 gap-8 sm:mt-12 sm:gap-10 md:mt-14 md:gap-12 lg:grid-cols-3 lg:gap-6">
       {
         reasons.map((reason) => {
           const Icon = reason.icon;
 
           return (
-            <article class="flex w-full max-w-md flex-col items-center p-2 my-2 text-center">
+            <article class="flex w-full max-w-md flex-col items-center rounded-[1.75rem] border border-slate-200 bg-white px-6 py-8 text-center shadow-[0_16px_34px_rgba(8,47,73,0.08)] lg:mx-auto lg:min-h-[18rem] lg:justify-start">
               <div
                 class={`flex h-16 w-16 items-center justify-center rounded-full ${reason.iconBackground}`}
               >
                 <Icon class={`h-8 w-8 ${reason.iconColor}`} aria-hidden="true" />
               </div>
 
-              <h3 class="mt-3 text-xl font-normal leading-tight text-slate-700 sm:text-2xl">
+              <h3 class="mt-4 text-xl font-medium leading-tight text-slate-700 sm:text-2xl">
                 {reason.title}
               </h3>
               <p class="mt-2 text-base leading-relaxed text-slate-500 sm:text-lg">

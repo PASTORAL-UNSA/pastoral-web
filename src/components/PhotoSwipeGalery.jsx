@@ -25,15 +25,16 @@ export default function SimpleGallery() {
 
   return (
     <div className="bg-cyan-50/10">
-      <div className="grid grid-cols-2 grid-rows-24 gap-4 mt-8" id="gallery">
+      <div className="mt-8 grid grid-cols-2 grid-rows-24 gap-3 md:mt-10 md:gap-4 lg:mt-12 lg:gap-5" id="gallery">
         {images.map((elem) => (
           <a
             key={elem.url}
             href={elem.url}
-            className={`bg-slate-300  overflow-hidden rounded-lg shadow-lg min-h-52 ${elem.grid}`}
+            className={`min-h-52 overflow-hidden rounded-2xl bg-slate-300 shadow-[0_14px_30px_rgba(8,47,73,0.2)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_34px_rgba(8,47,73,0.24)] ${elem.grid}`}
             data-pswp-width={`${elem.with}`}
             data-pswp-height={`${elem.height}`}
             target="_blank"
+            rel="noreferrer"
           >
             <img alt={elem.alt} className={elem.imgClass} src={elem.url} />
             <span className="pswp-caption-content hidden">

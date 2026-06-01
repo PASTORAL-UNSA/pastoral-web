@@ -1,7 +1,19 @@
 ---
-import ActivityHighlightCard from "./ActivityHighlightCard.astro";
+import ActivityHighlightCard from "../ActivityHighlightCard.astro";
 
-const activityCards = [
+type ActivityCard = {
+  title: string;
+  description: string;
+  icon: "heart" | "book" | "music";
+  bgClass: string;
+  textClass: string;
+  buttonClass: string;
+  badgeClass: string;
+  blobClassA: string;
+  blobClassB: string;
+};
+
+const activityCards: ActivityCard[] = [
   {
     title: "Voluntariado",
     description: "Lleva tu fe a la acción. Sirve con amor.",
@@ -39,13 +51,13 @@ const activityCards = [
 ---
 
 <div id="actividades" class="pt-8"></div>
-<section class="w-full px-4 pb-12 sm:px-6 lg:max-w-7xl lg:px-10">
-  <div class="mx-auto w-full max-w-3xl">
-    <h3 class="mb-8 text-3xl font-bold tracking-tight text-cyan-800 text-center">
+<section class="w-full px-4 pb-12 sm:px-6 lg:pb-20">
+  <div class="mx-auto w-full max-w-7xl lg:px-10">
+    <h3 class="mx-auto mb-8 max-w-3xl text-center text-3xl font-bold tracking-tight text-cyan-800 lg:mb-10 lg:text-5xl">
       Descubre nuestras <span class="text-cyan-600">actividades</span>
     </h3>
 
-    <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mt-4 grid gap-4 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
       {
         activityCards.map((activity) => (
           <ActivityHighlightCard {...activity} />
