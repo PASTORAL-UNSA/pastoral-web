@@ -4,54 +4,59 @@ import { FAQs } from "../../data/FAQs";
 import RowColapseIcon from "../../icons/RowColapse.astro";
 ---
 
-<section id="posts" class="w-full bg-slate-50 py-12 md:py-16 lg:py-20">
-  <div class="mx-auto grid w-full max-w-7xl gap-8 px-4 md:px-6 lg:grid-cols-12 lg:gap-10 lg:px-10">
-    <article class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_38px_rgba(8,47,73,0.1)] lg:col-span-7 lg:p-8">
+<section id="posts" class="w-full bg-white py-12 md:py-16 lg:py-[74px]">
+  <div class="mx-auto grid w-full max-w-[1200px] gap-16  lg:grid-cols-12 lg:items-start lg:gap-16 ">
+    <article class=" lg:col-span-6 ">
       <div class="flex items-end justify-between gap-3">
-        <h2 class="text-2xl font-semibold tracking-tight text-cyan-900 sm:text-3xl">
+        <h2 class="text-2xl font-semibold tracking-tight text-[#173a5d] sm:text-3xl lg:text-[40px] lg:leading-[1.02]">
           Últimas Noticias
         </h2>
-        <a href="/news" class="text-sm font-medium text-cyan-700 transition hover:text-cyan-900">
+        <a href="/news" class="text-sm font-semibold text-[#2c6b98] transition hover:text-[#16385b] lg:text-[14px]">
           Ver todas
         </a>
       </div>
 
-      <div class="mt-6 space-y-4">
+      <div class="mt-6 space-y-3.5 lg:mt-[26px] lg:space-y-[14px]">
         {
           posts.slice(0, 2).map((post) => (
             <a
               href={post.urlPost}
-              class="group block rounded-2xl border border-slate-200 bg-slate-50 p-4 transition hover:border-cyan-300 hover:bg-white"
+              class="group flex items-start gap-3 rounded-[18px] border border-[1.5px] border-[#d6e3ee] bg-[#f7fbff] p-4 transition hover:border-[#c0d4e6] hover:bg-white lg:min-h-[132px] lg:gap-[14px] lg:px-[18px] lg:py-[16px]"
             >
-              <p class="text-xs font-semibold uppercase tracking-[0.14em] text-amber-500">
-                {post.categories[0] ?? "Noticia"}
-              </p>
-              <h3 class="mt-2 text-lg font-semibold leading-snug text-slate-800 group-hover:text-cyan-900">
-                {post.title}
-              </h3>
-              <p class="mt-2 line-clamp-2 text-sm leading-relaxed text-slate-600">
-                {post.description}
-              </p>
+              <div class="mt-0.5 flex size-40 shrink-0 items-center justify-center rounded-xl border border-[#d4e2ee] bg-white text-sm font-bold text-[#2e6289] lg:size-16 lg:text-[15px]">
+                {((post.categories[0] ?? "N").slice(0, 1) || "N").toUpperCase()}
+              </div>
+              <div class="min-w-0">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#4f7fa4] lg:text-[11px] lg:leading-[1.1]">
+                  {(post.categories[0] ?? "Noticia")} - Pastoral UNSA
+                </p>
+                <h3 class="mt-1 line-clamp-2 text-base font-semibold leading-snug text-[#193954] group-hover:text-[#102c44] lg:mt-[6px] lg:text-[21px] lg:leading-[1.16]">
+                  {post.title}
+                </h3>
+                <p class="mt-1.5 line-clamp-2 text-sm leading-relaxed text-[#5f7487] lg:mt-[8px] lg:text-[14px] lg:leading-[1.45]">
+                  {post.description}
+                </p>
+              </div>
             </a>
           ))
         }
       </div>
     </article>
 
-    <article id="faqs" class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_18px_38px_rgba(8,47,73,0.1)] lg:col-span-5 lg:p-8">
-      <h2 class="text-2xl font-semibold tracking-tight text-cyan-900 sm:text-3xl">
+    <article id="faqs" class="rounded-[28px] lg:col-span-6 ">
+      <h2 class="text-2xl font-semibold tracking-tight text-[#173a5d] sm:text-3xl lg:text-[40px] lg:leading-[1.02]">
         Dudas Rápidas
       </h2>
-      <div class="mt-5 divide-y divide-slate-200">
+      <div class="mt-5 space-y-2.5 lg:mt-[24px] lg:space-y-[10px]">
         {
-          FAQs.slice(0, 4).map((faq) => (
-            <details class="group py-4" open={false}>
-              <summary class="flex cursor-pointer list-none items-center justify-between gap-3 text-sm font-medium text-slate-700">
+          FAQs.slice(0, 5).map((faq) => (
+            <a
+              href="/faq"
+              class="group flex min-h-12 items-center justify-between gap-3 rounded-[14px] border border-[1.5px] border-[#d6e3ee] bg-[#f7fbff] px-4 py-3 text-sm font-medium text-[#2a4964] transition hover:border-[#c0d4e6] hover:bg-white lg:min-h-[58px] lg:px-[18px] lg:py-[14px] lg:text-[15px] lg:leading-[1.25]"
+            >
                 <span>{faq.question}</span>
-                <RowColapseIcon class="size-3 shrink-0 text-cyan-700 transition group-open:rotate-180" />
-              </summary>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">{faq.answer}</p>
-            </details>
+                <RowColapseIcon class="size-3 shrink-0 -rotate-90 text-[#2c6b98] transition group-hover:-translate-x-0.5 lg:size-[13px]" />
+            </a>
           ))
         }
       </div>

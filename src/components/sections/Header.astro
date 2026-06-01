@@ -2,40 +2,53 @@
 import MenuIcon from "../../icons/Menu.astro";
 import logoPastoral from "../../assets/logo_pastoral.png";
 import { Image } from "astro:assets";
+import WhatsAppButton from "../WhatsAppButton.astro";
 ---
 
 <header
   id="header"
-  class="fixed inset-x-0 top-0 z-40 w-full border-b border-slate-200 bg-white/90 px-4 py-2 backdrop-blur-sm lg:px-6"
+  class="fixed inset-x-0 top-0 z-40 w-full border-b border-slate-200 bg-white/95 px-4 py-2 backdrop-blur-sm lg:px-6"
 >
-  <div class="mx-auto grid w-full max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 lg:grid-cols-[auto_1fr_auto]">
+  <div class="mx-auto grid w-full max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 lg:grid-cols-[auto_1fr_auto] lg:gap-8">
 
     <a href="/" class="flex justify-center lg:justify-start">
       <Image
         src={logoPastoral}
         alt="Pastoral Universitaria UNSA"
-        class="h-auto w-28 object-cover sm:w-36 lg:w-40"
+        class="h-auto w-28 object-cover sm:w-36 lg:w-[9.5rem]"
       />
     </a>
 
     <nav class="hidden justify-self-center lg:flex" aria-label="Navegacion principal">
-      <ul class="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-2 py-1 text-sm font-medium text-slate-700 shadow-sm">
-        <li><a href="/#inicio" class="rounded-full px-3 py-1.5 transition hover:bg-slate-100 hover:text-cyan-800">Inicio</a></li>
-        <li><a href="/#actividades" class="rounded-full px-3 py-1.5 transition hover:bg-slate-100 hover:text-cyan-800">Actividades</a></li>
-        <li><a href="/#nosotros" class="rounded-full px-3 py-1.5 transition hover:bg-slate-100 hover:text-cyan-800">Nosotros</a></li>
-        <li><a href="/#galeria" class="rounded-full px-3 py-1.5 transition hover:bg-slate-100 hover:text-cyan-800">Galeria</a></li>
-        <li><a href="/#contacto" class="rounded-full px-3 py-1.5 transition hover:bg-slate-100 hover:text-cyan-800">Contacto</a></li>
+      <ul class="flex items-center gap-7 text-[0.95rem] font-medium text-slate-700">
+        <li><a href="/#inicio" class="relative pb-1 transition hover:text-cyan-800">Inicio</a></li>
+        <li>
+          <a href="/#actividades" class="relative pb-1 text-slate-900 after:absolute after:-bottom-[0.36rem] after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-cyan-600">Eventos</a>
+        </li>
+        <li><a href="/#nosotros" class="relative pb-1 transition hover:text-cyan-800">Nosotros</a></li>
+        <li><a href="/#galeria" class="relative pb-1 transition hover:text-cyan-800">Galeria</a></li>
+        <li><a href="/#contacto" class="relative pb-1 transition hover:text-cyan-800">Contacto</a></li>
       </ul>
     </nav>
 
-    <button
-      id="btnMenu"
-      type="button"
-      class="inline-flex size-9 items-center justify-center justify-self-end rounded-full text-cyan-700 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 lg:hidden"
-    >
-      <span class="sr-only">Abrir menu principal</span>
-      <MenuIcon />
-    </button>
+    <div class="justify-self-end">
+      <div class="hidden items-center gap-7 lg:flex">
+        <WhatsAppButton
+          label="Unirme"
+          showIcon={false}
+          class="inline-flex min-h-10 items-center justify-center rounded-full bg-cyan-600 px-6 text-sm font-semibold text-white transition hover:bg-cyan-700"
+        />
+      </div>
+
+      <button
+        id="btnMenu"
+        type="button"
+        class="inline-flex size-9 items-center justify-center rounded-full text-cyan-700 transition hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-slate-300 lg:hidden"
+      >
+        <span class="sr-only">Abrir menu principal</span>
+        <MenuIcon />
+      </button>
+    </div>
   </div>
 </header>
 

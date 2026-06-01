@@ -1,45 +1,49 @@
 ---
 import WhatsAppIcon from "../../icons/WhatsApp.astro";
+import HandClap from "../../icons/HandClap.astro";
 import MailIcon from "../../icons/Mail.astro";
 import PhoneIcon from "../../icons/Phone.astro";
 import PinIcon from "../../icons/Pin.astro";
 ---
 
-<section id="contacto" class="w-full bg-cyan-50/30 pt-12 md:pt-16 lg:pt-20">
-  <div class="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-10">
-    <div class="rounded-[2.2rem] bg-slate-900 px-6 py-10 text-center text-slate-100 shadow-[0_24px_55px_rgba(15,23,42,0.45)] sm:px-10 lg:py-12">
-      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">Sigamos conectados</p>
-      <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+<section id="contacto" class="w-full bg-[#1f405d] pt-12 md:pt-16 lg:pt-8">
+  <div class="mx-auto w-full max-w-[1200px] px-4 md:px-6 lg:px-10">
+    <div class="rounded-[32px] bg-[#1f405d] px-6 py-10 text-center text-slate-100  sm:px-10 lg:px-[56px] lg:py-[54px]">
+      <div class="mx-auto flex size-16 items-center justify-center rounded-full border border-yellow-400 bg-white/12 text-yellow-400 lg:size-[68px]">
+        <HandClap className="size-14" />
+      </div>
+      <p class="mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#c2d6e7] lg:mt-[18px] lg:text-[12px]">Sigamos conectados</p>
+      <h2 class="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl lg:mt-[10px] lg:text-[53px] lg:leading-[1.03]">
         Únete a Nuestra Comunidad
       </h2>
-      <p class="mx-auto mt-4 max-w-3xl text-sm leading-relaxed text-slate-300 sm:text-base">
+      <p class="mx-auto mt-3 mb-6 max-w-3xl text-sm leading-relaxed text-[#d7e3ee] sm:text-base lg:mt-[14px] lg:max-w-[830px] lg:text-[17px] lg:leading-[1.5]">
         Conéctate con otros estudiantes y mantente informado sobre retiros, actividades y encuentros.
       </p>
       <a
         href="https://wa.me/51902182088"
         target="_blank"
         rel="noopener noreferrer"
-        class="mt-7 inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-600"
+        class="mt-7 mb-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#f2c94c] px-7 py-3 text-sm font-semibold text-[#12324d] transition hover:bg-[#e5bb3d] lg:mt-[26px] lg:min-h-[56px] lg:px-[34px] lg:text-[17px]"
       >
         <span>Unirse al Grupo de WhatsApp</span>
-        <WhatsAppIcon className="size-5" />
+        <WhatsAppIcon className="size-5 lg:size-[22px]" />
       </a>
     </div>
   </div>
 </section>
 
-<footer class="w-full bg-[#2574b0] py-10 text-gray-100/95 lg:py-12">
+<footer class="w-full bg-black/80 py-10 text-[#e6f0f8] lg:py-12">
   <div class="mx-auto grid w-full max-w-7xl gap-8 px-4 md:px-6 lg:grid-cols-12 lg:items-start lg:gap-10 lg:px-10">
     <div class="lg:col-span-5">
       <h3 class="text-3xl font-bold">Pastoral Universitaria</h3>
-      <p class="mt-3 max-w-sm text-sm text-gray-100/90">
+      <p class="mt-3 max-w-sm text-sm text-[#dbe8f4]">
         Acompanando tu camino de fe en la vida universitaria.
       </p>
     </div>
 
     <div class="space-y-3 lg:col-span-4">
-      <h4 class="text-base font-semibold uppercase tracking-[0.12em] text-white/95">Contacto</h4>
-      <ul class="space-y-2 text-sm text-gray-100/90">
+      <h4 class="text-base font-semibold uppercase tracking-[0.12em] text-[#f2f7fc]">Contacto</h4>
+      <ul class="space-y-2 text-sm text-[#dbe8f4]">
         <li class="flex items-start gap-2">
           <MailIcon class="mt-0.5 size-4 shrink-0" />
           <span class="break-all">pastoral@pastoralunsa.org</span>
@@ -56,17 +60,17 @@ import PinIcon from "../../icons/Pin.astro";
     </div>
 
     <div class="space-y-3 lg:col-span-3">
-      <h4 class="text-base font-semibold uppercase tracking-[0.12em] text-white/95">Navegacion</h4>
+      <h4 class="text-base font-semibold uppercase tracking-[0.12em] text-[#f2f7fc]">Navegacion</h4>
       <div class="flex flex-col gap-2 text-sm">
-        <a href="#actividades" class="text-white/85 transition hover:text-white">Actividades</a>
-        <a href="#posts" class="text-white/85 transition hover:text-white">Noticias</a>
-        <a href="#faqs" class="text-white/85 transition hover:text-white">Dudas rapidas</a>
-        <a href="#contacto" class="text-white/85 transition hover:text-white">Contacto</a>
+        <a href="#actividades" class="text-[#dbe8f4] transition hover:text-white">Actividades</a>
+        <a href="#posts" class="text-[#dbe8f4] transition hover:text-white">Noticias</a>
+        <a href="#faqs" class="text-[#dbe8f4] transition hover:text-white">Dudas rapidas</a>
+        <a href="#contacto" class="text-[#dbe8f4] transition hover:text-white">Contacto</a>
       </div>
     </div>
   </div>
 
-  <div class="mx-auto mt-8 w-full max-w-7xl border-t border-white/20 px-4 pt-6 text-center text-sm text-white/80 md:px-6 lg:px-10">
+  <div class="mx-auto mt-8 w-full max-w-7xl border-t border-[#83abc8] px-4 pt-6 text-center text-sm text-[#dbe8f4] md:px-6 lg:px-10">
     © {new Date().getFullYear()} Pastoral Universitaria. Todos los derechos reservados.
   </div>
 </footer>

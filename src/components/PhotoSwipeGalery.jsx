@@ -5,11 +5,12 @@ import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import "photoswipe/style.css";
 
 import images from "../data/Galery";
+import PhotoSwipeGaleryDesktop from "./PhotoSwipeGaleryDesktop";
 
 export default function SimpleGallery() {
   useEffect(() => {
     const lightbox = new PhotoSwipeLightbox({
-      gallerySelector: "#gallery",
+      gallerySelector: ".pswp-gallery",
       childSelector: "a",
       pswpModule: () => import("photoswipe"),
     });
@@ -25,7 +26,7 @@ export default function SimpleGallery() {
 
   return (
     <div className="bg-cyan-50/10">
-      <div className="mt-8 grid grid-cols-2 grid-rows-24 gap-3 md:mt-10 md:gap-4 lg:mt-12 lg:gap-5" id="gallery">
+      <div className="pswp-gallery mt-8 grid grid-cols-2 grid-rows-24 gap-3 md:mt-10 md:gap-4 lg:hidden" id="gallery-mobile">
         {images.map((elem) => (
           <a
             key={elem.url}
@@ -46,6 +47,7 @@ export default function SimpleGallery() {
           </a>
         ))}
       </div>
+      <PhotoSwipeGaleryDesktop />
       <style jsx>{`
         .pswp__dynamic-caption {
           color: #fff;

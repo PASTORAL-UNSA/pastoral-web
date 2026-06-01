@@ -1,21 +1,24 @@
 ---
 import WhatsAppButton from "../WhatsAppButton.astro";
+import heroImage from "../../assets/vol5.jpeg";
+import { Image } from "astro:assets";
 ---
 
-<div id="inicio" class="pt-[53px] lg:pt-[74px]"></div>
-<section class="relative w-full lg:max-w-7xl lg:px-6">
+<div id="inicio" class="pt-[53px] lg:pt-[64px]"></div>
+<section class="relative w-full lg:px-6">
   <div
-    class="absolute inset-0 -z-10 rounded-b-3xl bg-[#0d98b0] bg-[radial-gradient(rgba(255,255,255,0.2)_1.8px,transparent_1.8px),linear-gradient(150deg,#0f96af_0%,#0aa0bc_52%,#0b8ba4_100%)] bg-[length:22px_22px,cover] bg-[position:0_0,center] lg:rounded-[2.2rem]"
+    class="absolute inset-0 -z-10 rounded-b-3xl bg-[#0d98b0] bg-[radial-gradient(rgba(255,255,255,0.14)_1.8px,transparent_1.8px),linear-gradient(145deg,#0b95ad_0%,#10a2be_55%,#0b8ca4_100%)] bg-[length:22px_22px,cover] bg-[position:0_0,center] lg:rounded-none"
   ></div>
 
-  <div class="mx-auto grid min-h-[31rem] items-center pt-10 sm:px-6 sm:pt-5 lg:min-h-[36rem] lg:grid-cols-[1.08fr_0.92fr] lg:px-12 lg:pb-32 lg:pt-12">
-    <div class="mx-auto flex max-w-xl flex-col items-center space-y-5 text-center text-white lg:mx-0 lg:max-w-2xl lg:items-start lg:space-y-6 lg:text-left">
+  <div class="mx-auto max-w-7xl px-4 pt-0 sm:px-6 sm:pt-5 lg:px-12 lg:pt-12">
+    <div class="grid min-h-[31rem] items-center lg:min-h-[33.5rem] lg:grid-cols-[1.03fr_0.97fr] lg:gap-10">
+      <div class="mx-auto flex max-w-xl flex-col items-center space-y-5 text-center text-white lg:mx-0 lg:max-w-2xl lg:items-start lg:space-y-6 lg:text-left">
       <p
-        class="inline-flex items-center rounded-full  bg-white/20 backdrop-blur-sm px-4 py-1.5 text-sm font-semibold uppercase tracking-normal text-white/90"
+        class="inline-flex items-center rounded-full bg-white/20 px-4 py-1.5 text-sm font-semibold uppercase tracking-normal text-white/90 backdrop-blur-sm"
       >
         COMUNIDAD UNIVERSITARIA
       </p>
-      <h1 class="text-[2.15rem] font-extrabold leading-[1.05] text-white sm:text-5xl lg:text-[4.1rem]">
+      <h1 class="text-[2.15rem] font-extrabold leading-[1.05] text-white sm:text-5xl lg:max-w-[14ch] lg:text-[4rem]">
         <span>Vive la fe.</span><br />
         <span class="text-[#ffd24a] [text-shadow:0_2px_14px_rgba(9,46,71,0.24)]">Haz amigos en la UNSA.</span>
       </h1>
@@ -25,27 +28,41 @@ import WhatsAppButton from "../WhatsAppButton.astro";
 
       <div class="flex flex-wrap items-center justify-center text-gray-600 lg:justify-start">
         <WhatsAppButton
-          class="inline-flex min-h-12 items-center justify-center rounded-3xl border border-[#14243a1f] bg-[#ffd24a] px-12 py-2 text-base font-bold shadow-[0_12px_30px_rgba(11,39,62,0.24)] transition hover:-translate-y-px hover:bg-[#ffd145] lg:min-h-14 lg:px-14 lg:text-lg"
+          class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#14243a1f] bg-[#ffd24a] px-12 py-2 text-base font-bold shadow-[0_12px_30px_rgba(11,39,62,0.24)] transition hover:-translate-y-px hover:bg-[#ffd145] lg:min-h-14 lg:px-14 lg:text-lg"
+        />
+      </div>
+    </div>
+
+      <div class="relative mx-auto mt-2 hidden w-[min(92%,30rem)] lg:mx-0 lg:mt-0 lg:block lg:w-full lg:max-w-[33.5rem]">
+        <div
+          class="pointer-events-none absolute -left-4 -top-4 hidden h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] rounded-[2.4rem] border border-[#9fd26d]/60 lg:block"
+          aria-hidden="true"
+        ></div>
+        <Image
+          src={heroImage}
+          alt="Comunidad pastoral universitaria"
+          class="relative z-10 h-[20rem] w-full rounded-[1.8rem] object-cover shadow-[0_20px_42px_rgba(9,33,53,0.28)] lg:h-[28rem] lg:rounded-[2.25rem]"
         />
       </div>
     </div>
 
     <div
-      class="relative -mb-20 mx-auto grid w-[min(92%,29rem)] grid-cols-3 overflow-hidden rounded-[1.25rem] bg-white px-2 shadow-[0_16px_36px_rgba(10,34,55,0.22)] lg:absolute lg:bottom-0 lg:left-12 lg:mt-0 lg:w-[min(34rem,calc(100%-7rem))] lg:translate-y-[36%] lg:px-3 lg:py-1"
+      class="relative -mb-10 mx-auto mt-8 grid w-[min(92%,29rem)] grid-cols-3 overflow-hidden rounded-[1.25rem] bg-white px-2 shadow-[0_16px_36px_rgba(10,34,55,0.22)] lg:-mb-16 lg:mt-10 lg:w-[min(96%,48rem)] lg:px-6"
       aria-label="Impacto de la comunidad"
     >
       <article class="px-[0.5rem] pb-[0.95rem] pt-[1.08rem] text-center lg:px-3 lg:pb-4 lg:pt-5">
-        <p class="font-bold text-cyan-600 tracking-tighter lg:text-3xl">+500</p>
+        <p class="font-bold tracking-tighter text-cyan-600 lg:text-3xl">+500</p>
         <p class="tracking-wide text-gray-500 lg:text-sm">JOVENES</p>
       </article>
       <article class="px-[0.5rem] pb-[0.95rem] pt-[1.08rem] text-center lg:px-3 lg:pb-4 lg:pt-5">
-        <p class="font-bold text-cyan-600 tracking-tighter lg:text-3xl">10</p>
+        <p class="font-bold tracking-tighter text-cyan-600 lg:text-3xl">10</p>
         <p class="tracking-wide text-gray-500 lg:text-sm">GRUPOS</p>
       </article>
       <article class="px-[0.5rem] pb-[0.95rem] pt-[1.08rem] text-center lg:px-3 lg:pb-4 lg:pt-5">
-        <p class="font-bold text-cyan-600 tracking-tighter lg:text-3xl">1</p>
+        <p class="font-bold tracking-tighter text-cyan-600 lg:text-3xl">1</p>
         <p class="tracking-wide text-gray-500 lg:text-sm">FAMILIA</p>
       </article>
     </div>
+
   </div>
 </section>
