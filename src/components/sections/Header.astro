@@ -9,9 +9,10 @@ import WhatsAppButton from "../WhatsAppButton.astro";
   id="header"
   class="fixed inset-x-0 top-0 z-40 w-full border-b border-slate-200 bg-white/95 px-4 py-2 backdrop-blur-sm lg:px-6"
 >
-  <div class="mx-auto grid w-full max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 lg:grid-cols-[auto_1fr_auto] lg:gap-8">
+  <div class="mx-auto grid w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 lg:grid-cols-[auto_1fr_auto] lg:gap-8">
+    <div class="size-9 lg:hidden" aria-hidden="true"></div>
 
-    <a href="/" class="flex justify-center lg:justify-start">
+    <a href="/" class="flex justify-center justify-self-center lg:justify-self-start">
       <Image
         src={logoPastoral}
         alt="Pastoral Universitaria UNSA"
@@ -60,43 +61,49 @@ import WhatsAppButton from "../WhatsAppButton.astro";
     id="mobileMenu"
     class="w-full max-w-sm rounded-2xl bg-slate-50 py-2 shadow-xl"
   >
-    <ul class="flex flex-col font-medium rounded bg-slate-10">
+    <ul class="flex flex-col rounded bg-slate-10 text-sm font-medium">
       <!-- TODO: Agregar estado activo -->
       <!-- <li>
         <a href="/#inicio" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Inicio</a>
       </li> -->
       <li>
-        <a href="/#inicio" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
-          >🏡 Inicio</a
+        <a href="/#inicio" class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100"
+          >Inicio</a
         >
       </li>
       <li>
         <a
-          href="/#nosotros"
-          class="block py-2 px-4 md:p-0 text-gray-900 rounded"
-          >📖 Sobre Nosotros</a
+          href="/#calendario"
+          class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100"
+          >Calendario</a
         >
       </li>
       <li>
         <a
           href="/#actividades"
-          class="block py-2 px-4 md:p-0 text-gray-900 rounded">🦾 Actividades</a
+          class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100">Actividades</a
         >
       </li>
       <li>
-        <a href="/#posts" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
-          >📚 Noticias</a
+        <a
+          href="/#nosotros"
+          class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100">Nosotros</a
         >
       </li>
       <li>
-        <a href="/#galeria" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
-          >🎉 Vivencias</a
+        <a href="/#galeria" class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100"
+          >Galeria</a
+        >
+      </li>
+      <li>
+        <a href="/#posts" class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100"
+          >Noticias</a
         >
       </li>
       <li>
         <a
           href="/#testimonios"
-          class="block py-2 px-4 md:p-0 text-gray-900 rounded">🎙️ Testimonios</a
+          class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100">Testimonios</a
         >
       </li>
       <!-- <li>
@@ -105,14 +112,14 @@ import WhatsAppButton from "../WhatsAppButton.astro";
         >
       </li> -->
       <li>
-        <a href="/#faqs" class="block py-2 px-4 md:p-0 text-gray-900 rounded"
-          >❔ Preguntas</a
+        <a href="/#faqs" class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100"
+          >Preguntas</a
         >
       </li>
       <li>
         <a
           href="/#contacto"
-          class="block py-2 px-4 md:p-0 text-gray-900 rounded">🤳🏻 Contacto</a
+          class="block rounded px-4 py-2.5 text-gray-900 transition hover:bg-slate-100">Contacto</a
         >
       </li>
     </ul>

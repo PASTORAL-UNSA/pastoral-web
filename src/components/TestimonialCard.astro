@@ -31,7 +31,7 @@ const variant = isHighlighted
 
 <div
   class:list={[
-    "relative flex h-full flex-col rounded-3xl border px-5 pb-6 pt-8 text-center sm:px-6",
+    "relative flex h-full flex-col rounded-3xl border px-5 pb-7 pt-10 text-center sm:px-6 sm:pb-8",
     variant.card,
   ]}
 >
@@ -59,14 +59,14 @@ const variant = isHighlighted
 
   <p
     class:list={[
-      "mt-5 text-sm italic leading-relaxed sm:text-[0.95rem] md:text-base",
+      "mt-6 text-sm italic leading-relaxed sm:text-[0.95rem] md:text-base",
       variant.quote,
     ]}
   >
     "{testimonial.description}"
   </p>
 
-  <div class="mt-6 border-t border-current/15 pt-4">
+  <div class="mt-7 border-t border-current/15 pt-5">
     <h3 class="text-base font-semibold leading-tight md:text-lg">
       {testimonial.name}
     </h3>
