@@ -3,6 +3,7 @@ import type Testimonial from "../interfaces/Testimonial";
 export const testimonialList: Testimonial[] = [
   {
     name: "Gerald Villasante",
+    role: "Ing. Industrial",
     description:
       "El proceso de la confirmación me ayudo a meditar y reflexionar varias cosas en mi vida.",
     urlImage:
@@ -10,6 +11,7 @@ export const testimonialList: Testimonial[] = [
   },
   {
     name: "Karina Huacani Vilca",
+    role: "Medicina",
     description:
       "En el retiro compartimos ratos de alegría y un poco de nuestras carreras.",
     urlImage:
@@ -17,6 +19,7 @@ export const testimonialList: Testimonial[] = [
   },
   {
     name: "Franz Chapi Gómez",
+    role: "Derecho",
     description:
       "Las clases eran muy didácticas y las canciones nos movivaban y aumentaban nuestra fe en Dios.",
     urlImage:

@@ -3,15 +3,24 @@ import { testimonialList } from "../data/Testimonials";
 import TestimonialCard from "./TestimonialCard.astro";
 ---
 <div id="testimonios" class="pt-20"></div>
-<section class="w-full pb-8 md:py-24 lg:py-8 bg-cyan-50/10 lg:max-w-7xl">
-  <div class="container px-4 md:px-6">
-    <h2 class="font-medium text-3xl tracking-tighter sm:text-4xl md:text-5xl mb-8 text-cyan-900">
-      Testimonios
-    </h2>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<section class="w-full bg-cyan-50/10 py-12 md:py-16 lg:py-20">
+  <div class="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-10">
+    <header class="max-w-2xl">
+      <p class="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-700">
+        Comunidad que acompana
+      </p>
+      <h2 class="mt-2 text-3xl font-semibold tracking-tight text-cyan-900 sm:text-4xl md:text-5xl">
+        Testimonios
+      </h2>
+      <p class="mt-3 text-sm leading-relaxed text-cyan-900/75 sm:text-base">
+        Historias reales de estudiantes que encontraron amistad, fe y apoyo en la Pastoral Universitaria.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-7">
       {
-        testimonialList.map((testimonial) => (
-          <TestimonialCard testimonial={testimonial} />
+        testimonialList.map((testimonial, index) => (
+          <TestimonialCard testimonial={testimonial} index={index} />
         ))
       }
     </div>

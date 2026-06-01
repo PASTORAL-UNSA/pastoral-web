@@ -3,23 +3,75 @@ import type TestimonialCardInterface from "../interfaces/Testimonial";
 
 interface Props {
   testimonial: TestimonialCardInterface;
+  index: number;
 }
+
+const { testimonial, index } = Astro.props as Props;
+const initial = testimonial.name.trim().charAt(0).toUpperCase();
+const role =
+  "role" in testimonial ? (testimonial as { role?: string }).role : undefined;
+const isHighlighted = index === 1;
+const image = testimonial.urlImage?.trim();
+const variant = isHighlighted
+  ? {
+      card:
+        "bg-cyan-900 text-cyan-50 border-cyan-800 shadow-[0_16px_30px_rgba(6,35,55,0.24)]",
+      avatar: "bg-cyan-100 text-cyan-900 border-cyan-700",
+      quote: "text-cyan-50/90",
+      role: "text-cyan-100/80",
+    }
+  : {
+      card:
+        "bg-white text-slate-600 border-slate-200 shadow-[0_14px_26px_rgba(8,47,73,0.12)]",
+      avatar: "bg-cyan-700 text-white border-cyan-100",
+      quote: "text-slate-600",
+      role: "text-cyan-800/80",
+    };
 ---
 
 <div
-  class="testimonial-card border border-gray-350 rounded-lg p-4 bg-white shadow-sm"
+  class:list={[
+    "relative flex h-full flex-col rounded-3xl border px-5 pb-6 pt-8 text-center sm:px-6",
+    variant.card,
+  ]}
 >
-  <p class="text-gray-600 italic font-serif font-light text-md">
-    "{Astro.props.testimonial.description}"
+  <div
+    class:list={[
+      "absolute left-1/2 top-0 flex size-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full border-[5px] text-base font-semibold shadow-md",
+      variant.avatar,
+    ]}
+    aria-hidden="true"
+  >
+    {
+      image ? (
+        <img
+          src={image}
+          alt={`Foto de ${testimonial.name}`}
+          class="size-full rounded-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        initial
+      )
+    }
+  </div>
+
+  <p
+    class:list={[
+      "mt-5 text-sm italic leading-relaxed sm:text-[0.95rem] md:text-base",
+      variant.quote,
+    ]}
+  >
+    "{testimonial.description}"
   </p>
-  <div class="flex space-x-3 justify-end items-end">
-    <h1 class="text-sm text-cyan-900/80 mt-3">
-      {Astro.props.testimonial.name}
-    </h1>
-    <img
-      src={Astro.props.testimonial.urlImage}
-      alt=""
-      class="size-5 rounded-full bg-slate-500 object-cover"
-    />
+
+  <div class="mt-6 border-t border-current/15 pt-4">
+    <h3 class="text-base font-semibold leading-tight md:text-lg">
+      {testimonial.name}
+    </h3>
+    <p class:list={["mt-1 text-sm leading-snug", variant.role]}>
+      {role ?? "Estudiante"}
+    </p>
   </div>
 </div>

@@ -1,5 +1,6 @@
 export default interface Testimonial {
-  name: String;
-  description: String;
+  name: string;
+  description: string;
   urlImage: string;
+  role?: string;
 }
