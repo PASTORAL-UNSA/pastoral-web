@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import PhotoSwipeLightbox from "photoswipe/lightbox";
 import PhotoSwipeDynamicCaption from "photoswipe-dynamic-caption-plugin";
 import "photoswipe/style.css";
+import "photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css";
 
 import images from "../data/Galery";
 import PhotoSwipeGaleryDesktop from "./PhotoSwipeGaleryDesktop";
@@ -17,7 +18,7 @@ export default function SimpleGallery() {
 
     const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
       mobileLayoutBreakpoint: 700,
-      type: "auto",
+      type: "aside",
       mobileCaptionOverlapRatio: 1,
     });
 
@@ -50,12 +51,32 @@ export default function SimpleGallery() {
       <PhotoSwipeGaleryDesktop />
       <style jsx>{`
         .pswp__dynamic-caption {
+          z-index: 600;
+        }
+
+        :global(.pswp__dynamic-caption--aside) {
+          top: 1.5rem;
+          right: 1.5rem;
+          left: auto;
+          max-width: min(28vw, 22rem);
+          background: rgba(7, 23, 38, 0.82);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          border-radius: 0.875rem;
+          padding: 0.85rem 1rem;
+          color: #f8fbff;
+        }
+
+        :global(.pswp__dynamic-caption--aside b) {
+          display: block;
+          margin-bottom: 0.25rem;
+          font-size: 0.95rem;
+          line-height: 1.25;
+          font-weight: 700;
+          color: #ffffff;
+        }
+
+        :global(.pswp__dynamic-caption--mobile) {
           color: #fff;
-          width: 100%;
-          z-index: 500;
-          position: absolute;
-          bottom: 30px;
-          padding: 10px;
         }
       `}</style>
     </div>

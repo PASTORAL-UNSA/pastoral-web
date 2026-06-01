@@ -1,10 +1,10 @@
 ---
 import WhatsAppIcon from "../icons/WhatsApp.astro";
+import { getWhatsAppJoinUrl } from "../utils/whatsapp";
 
 interface Props {
   label?: string;
   class?: string;
-  messageOverride?: string;
   ariaLabel?: string;
   showIcon?: boolean;
 }
@@ -12,20 +12,11 @@ interface Props {
 const {
   label = "Unirme por WhatsApp",
   class: className = "",
-  messageOverride,
   ariaLabel,
   showIcon = true,
 } = Astro.props as Props;
 
-const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER ?? "51999999999";
-const defaultMessage =
-  import.meta.env.PUBLIC_WHATSAPP_MESSAGE ??
-  "Hola, quiero unirme a Pastoral Universitaria UNSA.";
-const siteUrl = import.meta.env.PUBLIC_SITE_URL ?? "https://pastoral-unsa.local";
-
-const whatsappBaseUrl = "https://api.whatsapp.com/send";
-const finalMessage = messageOverride ?? defaultMessage;
-const href = `${whatsappBaseUrl}?phone=${encodeURIComponent(whatsappNumber)}&text=${encodeURIComponent(`${finalMessage} (${siteUrl})`)}`;
+const href = getWhatsAppJoinUrl();
 ---
 
 <a

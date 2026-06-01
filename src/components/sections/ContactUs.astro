@@ -5,6 +5,9 @@ import Mountain from "../../icons/mountain/Mountain.astro";
 import Moon from "../../icons/mountain/Moon.astro";
 import Cloud from "../../icons/mountain/Cloud.astro";
 import WhatsAppIcon from "../../icons/WhatsApp.astro";
+import { getWhatsAppJoinUrl } from "../../utils/whatsapp";
+
+const whatsappJoinUrl = getWhatsAppJoinUrl();
 ---
 
 <div id="contacto" class="bg-cyan-500/10 pt-44 sm:pt-52 md:pt-60"></div>
@@ -17,10 +20,15 @@ import WhatsAppIcon from "../../icons/WhatsApp.astro";
       Conéctate con otros estudiantes, comparte tu fe y mantente informado sobre
       nuestras actividades.
     </p>
-    <button class="mb-2 mt-8 flex w-full max-w-xs flex-row items-center justify-center rounded-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600 px-4 py-2.5 text-center text-sm font-medium text-white shadow-lg shadow-green-500/50 transition duration-150 ease-[cubic-bezier(.56,.44,0,1.81)] hover:scale-95 hover:ease-in hover:shadow-md hover:bg-gradient-to-br focus:outline-none focus:ring-1 focus:ring-green-300 sm:w-auto sm:max-w-none sm:px-5">
+    <a
+      href={whatsappJoinUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mb-2 mt-8 flex w-full max-w-xs flex-row items-center justify-center rounded-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600 px-4 py-2.5 text-center text-sm font-medium text-white shadow-lg shadow-green-500/50 transition duration-150 ease-[cubic-bezier(.56,.44,0,1.81)] hover:scale-95 hover:ease-in hover:shadow-md hover:bg-gradient-to-br focus:outline-none focus:ring-1 focus:ring-green-300 sm:w-auto sm:max-w-none sm:px-5"
+    >
       <span class="mr-2"> Unirse al Grupo de WhatsApp </span>
       <WhatsAppIcon className="size-5" />
-    </button>
+    </a>
   </div>
   <div class="absolute top-0 left-0 right-0 bottom-0 -z-10">
     <Starts class="absolute -top-20 right-0 h-28 w-full" />

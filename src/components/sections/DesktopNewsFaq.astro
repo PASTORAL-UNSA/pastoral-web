@@ -47,19 +47,69 @@ import RowColapseIcon from "../../icons/RowColapse.astro";
       <h2 class="text-2xl font-semibold tracking-tight text-[#173a5d] sm:text-3xl lg:text-[40px] lg:leading-[1.02]">
         Dudas Rápidas
       </h2>
-      <div class="mt-5 space-y-2.5 lg:mt-[24px] lg:space-y-[10px]">
+      <div class="mt-5 space-y-2.5 lg:mt-[24px] lg:space-y-[10px]" data-desktop-faq>
         {
           FAQs.slice(0, 5).map((faq) => (
-            <a
-              href="/faq"
-              class="group flex min-h-12 items-center justify-between gap-3 rounded-[14px] border border-[1.5px] border-[#d6e3ee] bg-[#f7fbff] px-4 py-3 text-sm font-medium text-[#2a4964] transition hover:border-[#c0d4e6] hover:bg-white lg:min-h-[58px] lg:px-[18px] lg:py-[14px] lg:text-[15px] lg:leading-[1.25]"
+            <article
+              class="overflow-hidden rounded-[14px] border border-[1.5px] border-[#d6e3ee] bg-[#f7fbff] transition"
+              data-desktop-faq-item
             >
+              <button
+                type="button"
+                class="group flex min-h-12 w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-medium text-[#2a4964] transition hover:bg-white lg:min-h-[58px] lg:px-[18px] lg:py-[14px] lg:text-[15px] lg:leading-[1.25]"
+                data-desktop-faq-trigger
+                aria-expanded="false"
+              >
                 <span>{faq.question}</span>
-                <RowColapseIcon class="size-3 shrink-0 -rotate-90 text-[#2c6b98] transition group-hover:-translate-x-0.5 lg:size-[13px]" />
-            </a>
+                <RowColapseIcon class="size-3 shrink-0 -rotate-90 text-[#2c6b98] transition group-hover:-translate-x-0.5 lg:size-[13px]" data-desktop-faq-icon />
+              </button>
+              <div class="hidden border-t border-[#d6e3ee] px-4 pb-4 pt-2 text-sm leading-relaxed text-[#5f7487] lg:px-[18px] lg:text-[14px]" data-desktop-faq-content>
+                {faq.answer}
+              </div>
+            </article>
           ))
         }
       </div>
     </article>
   </div>
 </section>
+
+<script>
+  const desktopFaqRoots = document.querySelectorAll("[data-desktop-faq]");
+
+  desktopFaqRoots.forEach((root) => {
+    const items = Array.from(root.querySelectorAll("[data-desktop-faq-item]"));
+
+    const closeItem = (item) => {
+      const trigger = item.querySelector("[data-desktop-faq-trigger]");
+      const content = item.querySelector("[data-desktop-faq-content]");
+      const icon = item.querySelector("[data-desktop-faq-icon]");
+
+      trigger?.setAttribute("aria-expanded", "false");
+      content?.classList.add("hidden");
+      icon?.classList.add("-rotate-90");
+      item.classList.remove("bg-white", "border-[#c0d4e6]");
+    };
+
+    const openItem = (item) => {
+      const trigger = item.querySelector("[data-desktop-faq-trigger]");
+      const content = item.querySelector("[data-desktop-faq-content]");
+      const icon = item.querySelector("[data-desktop-faq-icon]");
+
+      trigger?.setAttribute("aria-expanded", "true");
+      content?.classList.remove("hidden");
+      icon?.classList.remove("-rotate-90");
+      item.classList.add("bg-white", "border-[#c0d4e6]");
+    };
+
+    items.forEach((item) => {
+      const trigger = item.querySelector("[data-desktop-faq-trigger]");
+      trigger?.addEventListener("click", () => {
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+
+        items.forEach((otherItem) => closeItem(otherItem));
+        if (!isOpen) openItem(item);
+      });
+    });
+  });
+</script>

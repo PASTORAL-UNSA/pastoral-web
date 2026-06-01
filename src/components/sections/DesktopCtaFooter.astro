@@ -4,6 +4,9 @@ import HandClap from "../../icons/HandClap.astro";
 import MailIcon from "../../icons/Mail.astro";
 import PhoneIcon from "../../icons/Phone.astro";
 import PinIcon from "../../icons/Pin.astro";
+import { getWhatsAppJoinUrl } from "../../utils/whatsapp";
+
+const whatsappJoinUrl = getWhatsAppJoinUrl();
 ---
 
 <section id="contacto" class="w-full bg-[#1f405d] pt-12 md:pt-16 lg:pt-8">
@@ -20,7 +23,7 @@ import PinIcon from "../../icons/Pin.astro";
         Conéctate con otros estudiantes y mantente informado sobre retiros, actividades y encuentros.
       </p>
       <a
-        href="https://wa.me/51902182088"
+        href={whatsappJoinUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="mt-7 mb-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#f2c94c] px-7 py-3 text-sm font-semibold text-[#12324d] transition hover:bg-[#e5bb3d] lg:mt-[26px] lg:min-h-[56px] lg:px-[34px] lg:text-[17px]"
